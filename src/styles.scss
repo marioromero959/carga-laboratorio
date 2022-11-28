@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/theming';
+
+@include mat-core();
+
+:root{
+  --primary:#00788d8a;
+  --accent:#87ebb4;
+  --warn:#b92500;
+}
+
+// GAMA COLORES
+$my-primary-color: (
+  200 : #00788d8a,
+  500 : #00788d8a,
+  700 : #00788d8a,
+  contrast: (
+    200 : #ffffff,
+    500 : #ffffff,
+    700 : #ffffff,
+  )
+);
+
+$my-accent-color: (
+  200 : #87ebb4,
+  500 : #87ebb4,
+  700 : #87ebb4,
+  contrast: (
+    200 : #ffffff,
+    500 : #ffffff,
+    700 : #ffffff,
+  )
+);
+
+$my-warn-color: (
+  200 : #b92500,
+  500 : #b92500,
+  700 : #b92500,
+  contrast: (
+    200 : #fff,
+    500 : #fff,
+    700 : #fff,
+  )
+);
+
+// PALETA DE COLORES
+$my-palette-primary: mat-palette($my-primary-color);
+$my-palette-accent: mat-palette($my-accent-color);
+$my-palette-warn: mat-palette($my-warn-color);
+
+// TEMA PROPIO
+$my-theme: mat-light-theme((
+ color: (
+   primary: $my-palette-primary,
+   accent: $my-palette-accent,
+   warn: $my-palette-warn
+ )
+));
+
+// APLICAR NUESTRO TEMA A ANGULAR
+@include angular-material-theme($my-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0;font-family: 'Lato', sans-serif; }

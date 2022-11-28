@@ -1,0 +1,21 @@
+.inicio{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card_principal{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+mat-form-field{
+    margin:0 10px;
+}
+.mat-table{
+    width: 100%;
+}
+.header{
+    font-weight: 600;
+}
+mat-card{
+    box-shadow: none !important;
+}
