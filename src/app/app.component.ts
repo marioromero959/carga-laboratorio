@@ -341,7 +341,7 @@ export class AppComponent implements OnInit {
     {
       position: 5, header: false, nombre: 'Aspecto', valor: '',
       referencia: ''
-    },{
+    }, {
       position: 6, header: false, nombre: 'Ph', valor: '',
       referencia: ''
     },
@@ -360,6 +360,171 @@ export class AppComponent implements OnInit {
     {
       position: 10, header: false, nombre: 'Vitamina B6 (Piridoxina) - Cromatografía líquida de alta presión (HPLC)', valor: '',
       referencia: 'Valor de Referencia: 2 a 17 años: 3.0 a 40.0 ng/ml Adultos: 10 a 40 ng'
+    }
+  ]
+  segundoExcel: Table[] = [
+    {
+      position: 1, header: false, nombre: 'Apoliproteína Apo- B - Inmunoturbidimetría', valor: '',
+      referencia: 'V.R.: Hombres: 66 a 133 mg/dl Mujeres: 60 a 117 mg/dl'
+    }, {
+      position: 2, header: false, nombre: 'Fosfatemia - Colorimetrico', valor: '',
+      referencia: 'vr: Adultos: 2.50 a 5.60 mg% Niños: 4.00 a 7.00 mg%'
+    }, {
+      position: 3, header: false, nombre: 'Proteina C Reactivo Ultrasensible - Método: Turbidimetría Las instituciones CDC y AHA recomiendan los siguientes valores en la evaluación de riesgo de cardiopatías coronarias', valor: '',
+      referencia: 'Valor de Referencia: Hasta 5.0 mg/l Riesgo Cardiovascular <1.0 Riesgo Bajo 1.0-3.0 Riesgo Medio 3.0-10.0 Riesgo Alto >10.0 Riesgo muy alto'
+    }, {
+      position: 4, header: false, nombre: 'Magnesemia - Colorimetrico', valor: '',
+      referencia: 'vr: 1.90 a 2.50 mg/dl'
+    }, {
+      position: 5, header: false, nombre: 'Amilasemia - Enzimatico Tecnologia: COBAS C311- ROCHE DIAGNOSTICS', valor: '',
+      referencia: 'vr: hasta 28 a 100 U/l'
+    }, {
+      position: 6, header: false, nombre: 'Indice de HOMA ', valor: '',
+      referencia: 'Valores mayores a 3.0 dan indicios de resistencia a la isulina'
+    }, {
+      position: 7, header: false, nombre: 'Acido Folico - Quimioluminscencia', valor: '',
+      referencia: 'Valor de Referencia: Normal: mayor a 5.3 ng/ml'
+    }, {
+      position: 8, header: false, nombre: 'Vitamina A (Retinol) - Cromatografía líquida', valor: '',
+      referencia: 'Valor de Referencia: 1 - 6 años: 0.25 a 0.43 mg/l Adultos: 0.34 a 0.80 mg/l'
+    }, {
+      position: 9, header: false, nombre: 'Vitamina B6 (Piridoxina) - Cromatografía líquida de alta presión (HPLC)', valor: '',
+      referencia: 'Valor de Referencia: 2 a 17 años: 3.0 a 40.0 ng/ml Adultos: 10 a 40 ng/ml'
+    }, {
+      position: 10, header: false, nombre: 'Vitamina B12 - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero protegido de la luz', valor: '',
+      referencia: 'Valor de Referencia: 210 a 910 pg/ml'
+    }, {
+      position: 11, header: false, nombre: 'Vitamina C (Ac. Ascorbico) - Cromatografía líquida de alta presión (HPLC)', valor: '',
+      referencia: 'Valor de Referencia: 0.20 - 2.00 mg/100 ml'
+    }, {
+      position: 12, header: false, nombre: 'Apolipoproteinas Apo-A1 - Inmunoturbidimetría', valor: '',
+      referencia: 'V.R. Hombres: 104 a 202 mg/dl Mujeres: 108 a 225 mg/dl'
+    }, {
+      position: 13, header: false, nombre: 'Lipoproteína a -Lp(a) - ITD', valor: '',
+      referencia: 'Valor de Referencia: Hasta 30 mg/dl'
+    }, {
+      position: 14, header: false, nombre: 'Aluminio serico - Absorción atómica', valor: '',
+      referencia: 'Valor de Referencia: Hasta 0.60 ug/dl Diálisis crónica: hasta 6.0 ug/dl'
+    }, {
+      position: 15, header: false, nombre: 'Manganeso en suero - Absorción atómica', valor: '',
+      referencia: 'Valor de Referencia: Hasta 0.23 µg/dl Límite de detección: 0.10 µg/dl'
+    }, {
+      position: 16, header: false, nombre: 'Selenio en Suero - Absorción atómica Mayo Clinic Laboratories. SES, (2020)', valor: '',
+      referencia: 'VR : 0 a 2 meses: 45 - 90 ng/ml 3 a 6 meses: 50-120 ng/ml 7 a 9 meses: 60-120 ng/ml 10 a 12 meses: 70-130 ng/ml Mayor de 1 año: 70-150 ng/ml'
+    }, {
+      position: 17, header: false, nombre: 'Zinc Serico - Colorimétrico', valor: '',
+      referencia: '0-11 años: 66-100 ug/dl Mayor de 11 años: 60'
+    }, {
+      position: 18, header: false, nombre: 'Dehidroepiandrosterona Sulfato (DHEA-S) - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero', valor: '',
+      referencia: 'Valor de Referencia: Hombres: 18-39 años 108-520 ug/dl mayores 39 años:28-530 ug/dl Mujeres: 18- 39 años:45-395 ug/dl mayores de 39 años:17-270 ug/dl'
+    }, {
+      position: 19, header: false, nombre: 'Testosterona Libre - Quimioluminiscencia. Fórmula de Vermeulen', valor: '',
+      referencia: 'Valores de referencia: Mujer adulta : 2.0 a 8.5 pg/ml Hombre adulto : 50.0 a 220.0 pg/ml'
+    }, {
+      position: 20, header: false, nombre: 'Clearence de Creatinina', valor: '',
+      referencia: ''
+    }, {
+      position: 21, header: false, nombre: 'Diuresis', valor: '',
+      referencia: 'Adulto: 1200 a 1500 ml'
+    }, {
+      position: 22, header: false, nombre: 'Volumen Minuto', valor: '',
+      referencia: ''
+    }, {
+      position: 23, header: false, nombre: 'Creatinina urinaria', valor: '',
+      referencia: ''
+    }, {
+      position: 24, header: false, nombre: 'Creatinina en sangre', valor: '',
+      referencia: '0.60 a 1.15 mg/dl'
+    }, {
+      position: 25, header: false, nombre: 'Proteinuria', valor: '',
+      referencia: ''
+    }, {
+      position: 26, header: false, nombre: 'Diuresis:', valor: '',
+      referencia: ''
+    }, {
+      position: 27, header: false, nombre: 'Proteinuria', valor: '',
+      referencia: ''
+    }, {
+      position: 28, header: false, nombre: 'Tiroglobulina, anticuerpos anti - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero', valor: '',
+      referencia: 'vr: Hasta 60 U/ml'
+    }, {
+      position: 29, header: false, nombre: 'Factor Reumatoideo - Inmunoturbidimetria instrumento: COBAS C311 Roche Diagnostics', valor: '',
+      referencia: 'vr: No Reactivo'
+    }, {
+      position: 30, header: false, nombre: 'Indice de Reactividad de FR:', valor: '',
+      referencia: 'vr: hasta 14 UI/ml'
+    }, {
+      position: 31, header: false, nombre: 'VDRL - Quimioluminiscencia Test inmunológico in vitro para la determinación cualitativa de los anticuerpos totales contra el Treponema pallidum.', valor: '',
+      referencia: 'VR: No Reactivo'
+    }, {
+      position: 32, header: false, nombre: 'ANTIC. ANTI DNA - Quimioluminiscencia', valor: '',
+      referencia: 'Negativo: menor de 20 UI/ml Indeterminado: 20 a 25 UI/ml Positivo: mayor de 25 UI/ml'
+    }, {
+      position: 33, header: false, nombre: 'ANTICUERPO ANTI NUCLEOCITOPLASMATICO (FAN) - Inmunofluorescencia Indirecta IFI Sustrato: Celulas Hep-2(alveolar epithelial carcinoma cell line)', valor: '',
+      referencia: 'Valor de referencia: Negativo Dilución de corte: 1/80'
+    }, {
+      position: 34, header: false, nombre: 'C3- COMPLEMENTO BETA 1C - NEFELOMETRIA CINETICA Material examinado: suero', valor: '',
+      referencia: 'vr: 82 a 193 mg/dl'
+    }, {
+      position: 35, header: false, nombre: 'C4 - COMPLEMENTO BETA 1E - Turbidimético Material examinado: suero', valor: '',
+      referencia: 'VR: 10 a 40 mg/dl'
+    }
+  ]
+  perfilLipido: Table[] = [
+    {
+      position: 1, header: false, nombre: 'Colesterol Total - Enzimatico Colorimetrico Tecnologia: COBAS C311- ROCHE DIAGNOSTICS', valor: '',
+      referencia: 'Deseable < 180 mg/dl Elevado > 200 mg/dl'
+    }, {
+      position: 2, header: false, nombre: 'HDL colesterol - colorimetrico enzimatico homogeneo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS Material examinado: Suero', valor: '',
+      referencia: 'Sin riesgo Mujeres > 65 mg/dl Hombres > 55 mg/dl Riesgo Moderado Mujeres 45-65 mg/dl Hombres 35-55 mg/dl Alto Riesgo Mujeres < 45 mg/dl Hombres < 35 mg/dl'
+    }, {
+      position: 3, header: false, nombre: 'LDL colesterol - colorimetrico enzimatico homogeneo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS Material examinado: Suero', valor: '',
+      referencia: 'Valor deseable < 100 Valor elevado 130 a 159'
+    }, {
+      position: 4, header: false, nombre: 'Colesterol NO - HDL', valor: '',
+      referencia: 'Deseable < 130 mg/dl Riesgo Bajo 131 a 189 mg/dl Riesgo alto: 190 a 219 mg/dl Riesgo Muy Alto: > 220 mg/dl'
+    }, {
+      position: 5, header: false, nombre: 'VLDL-colesterol, Lipoproteina de muy Baja densidad', valor: '',
+      referencia: 'vr: 10 a 40 mg/dl'
+    }, {
+      position: 6, header: false, nombre: 'Trigliceridos - Enzimatico colorimetrico Teconologia: COBAS C111- ROCHE DIAGNOSTICS Material examinado: Suero', valor: '',
+      referencia: 'vr: 50 - 200 mg/dl Según NCEP (European atherosclerosis Society)'
+    }, {
+      position: 7, header: true, nombre: 'Clearence de Creatinina', valor: '',
+      referencia: ''
+    }, {
+      position: 8, header: false, nombre: 'Peso', valor: '',
+      referencia: ''
+    }, {
+      position: 9, header: false, nombre: 'Altura', valor: '',
+      referencia: ''
+    }, {
+      position: 10, header: false, nombre: 'Superficie Corporal', valor: '',
+      referencia: ''
+    }, {
+      position: 11, header: false, nombre: 'Diuresis', valor: '',
+      referencia: ''
+    }, {
+      position: 12, header: false, nombre: 'Volumen Minuto', valor: '',
+      referencia: ''
+    }, {
+      position: 13, header: false, nombre: 'Taza de Filtracion Glomerular', valor: '',
+      referencia: ''
+    }, {
+      position: 14, header: false, nombre: 'Creatinina urinaria', valor: '',
+      referencia: ''
+    }, {
+      position: 15, header: false, nombre: 'Creatinina en sangre', valor: '',
+      referencia: ''
+    }, {
+      position: 16, header: true, nombre: 'Proteinuria', valor: '',
+      referencia: ''
+    }, {
+      position: 17, header: false, nombre: 'Diuresis:', valor: '',
+      referencia: ''
+    }, {
+      position: 18, header: false, nombre: 'Proteinuria', valor: '',
+      referencia: ''
     }
   ]
 
