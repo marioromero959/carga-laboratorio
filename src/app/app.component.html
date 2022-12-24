@@ -1,7 +1,11 @@
-<div class="container">
-
+<div class="btn-export">
+    <button  mat-raised-button color="primary" (click)="exportPDF()">
+        Exportar a pdf
+    </button>
+</div>
+<div>
+<div class="container" #pdf>
     <img src="../assets/creo.jpeg" alt="">
-
     <div>
         <form [formGroup]="formularioGeneral">
             <div class="inicio">
@@ -16,7 +20,7 @@
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Fecha</mat-label>
-                        <input matInput formControlName="fecha">
+                        <input matInput type="date" formControlName="fecha" max="9999-12-12">
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Médico</mat-label>
@@ -29,10 +33,9 @@
                 </mat-card>
             </div>
 
+            <div class="tables">
             <mat-card>
-                <strong>
-                    HEMOGRAMA COMPLETO
-                </strong>
+                <h2>HEMOGRAMA&nbsp;&nbsp;COMPLETO</h2>
                 Método: Citometria de Flujo
                 Laser Modelo: SYSMEX XS-1000
             </mat-card>
@@ -48,7 +51,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header" >
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -60,11 +63,8 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-
-            <mat-card class="">
-                <strong>
-                    COAGULORAMA BÁSICO
-                </strong>
+            <mat-card>
+                <h2>COAGULORAMA&nbsp;&nbsp;BÁSICO</h2>
                 Coagulométrico turbidimétrico Automatizado Instrumento: ST4 / ST-ART
             </mat-card>
             <table mat-table [dataSource]="coagulograma" class="mat-elevation-z8">
@@ -79,7 +79,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header">
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -92,10 +92,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <mat-card class="">
-                <strong>
-                    IONOGRAMA SERICO
-                </strong>
+            <mat-card>
+                <h2>IONOGRAMA&nbsp;&nbsp;SERICO</h2>
                 Electrodo ión selectivo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS
             </mat-card>
             <table mat-table [dataSource]="ionograma" class="mat-elevation-z8">
@@ -110,7 +108,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header">
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -123,10 +121,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <mat-card class="">
-                <strong>
-                    ÍNDICE DE RIESGO ATEROGENICO
-                </strong>
+            <mat-card>
+                <h2>ÍNDICE DE RIESGO&nbsp;&nbsp;ATEROGENICO</h2>
             </mat-card>
             <table mat-table [dataSource]="indiceAterogenico" class="mat-elevation-z8">
                 <ng-container matColumnDef="nombre">
@@ -140,7 +136,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header">
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -153,10 +149,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <mat-card class="">
-                <strong>
-                    SEDIMENTO URINARIO
-                </strong>
+            <mat-card>
+                <h2>SEDIMENTO&nbsp;&nbsp;URINARIO</h2>
             </mat-card>
             <table mat-table [dataSource]="sedimentoUrinario" class="mat-elevation-z8">
                 <ng-container matColumnDef="nombre">
@@ -170,7 +164,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header">
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -195,7 +189,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header">
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -208,10 +202,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <mat-card class="">
-                <strong>
-                    PERFIL LIPIDO
-                </strong>
+            <mat-card>
+                <h2>PERFIL&nbsp;&nbsp;LIPIDO</h2>
                 Enzimático Teconologia: COBAS C311- ROCHE DIAGNOSTICS
             </mat-card>
             <table mat-table [dataSource]="perfilLipido" class="mat-elevation-z8">
@@ -226,7 +218,7 @@
                 <ng-container matColumnDef="valor">
                     <th mat-header-cell *matHeaderCellDef> Valor </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" appearance="outline">
+                        <mat-form-field *ngIf="!element.header">
                             <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
                         </mat-form-field>
                     </td>
@@ -238,6 +230,8 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+        </div>
         </form>
     </div>
+</div>
 </div>
