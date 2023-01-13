@@ -1,237 +1,338 @@
 <div class="btn-export">
-    <button  mat-raised-button color="primary" (click)="exportPDF()">
-        Exportar a pdf
-    </button>
+  <button mat-raised-button color="primary" (click)="exportPDF()">
+    Exportar a pdf
+  </button>
 </div>
 <div>
-<div class="container" #pdf>
-    <img src="../assets/creo.jpeg" alt="">
+  <div class="container" #pdf>
+    <img src="../assets/creo.jpeg" alt="" />
     <div>
-        <form [formGroup]="formularioGeneral">
-            <div class="inicio">
-                <mat-card class="card_principal">
-                    <mat-form-field>
-                        <mat-label>Nombre y Apellido</mat-label>
-                        <input matInput formControlName="nombre_apellido">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Obra Social</mat-label>
-                        <input matInput formControlName="obra_social">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Fecha</mat-label>
-                        <input matInput type="date" formControlName="fecha" max="9999-12-12">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Médico</mat-label>
-                        <input matInput formControlName="nombre_medico">
-                    </mat-form-field>
-                </mat-card>
-                <mat-card class="card_principal">
-                    LABORATORIO DE ANALISIS CLINICOS BIOQUIMICA : DEL
-                    RICCIO LAURA E.MP 180
-                </mat-card>
-            </div>
-
-            <div class="tables">
-            <mat-card>
-                <h2>HEMOGRAMA&nbsp;&nbsp;COMPLETO</h2>
-                Método: Citometria de Flujo
-                Laser Modelo: SYSMEX XS-1000
-            </mat-card>
-            <table mat-table [dataSource]="hemograma" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header" >
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-            <mat-card>
-                <h2>COAGULORAMA&nbsp;&nbsp;BÁSICO</h2>
-                Coagulométrico turbidimétrico Automatizado Instrumento: ST4 / ST-ART
-            </mat-card>
-            <table mat-table [dataSource]="coagulograma" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header">
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-            <mat-card>
-                <h2>IONOGRAMA&nbsp;&nbsp;SERICO</h2>
-                Electrodo ión selectivo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS
-            </mat-card>
-            <table mat-table [dataSource]="ionograma" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header">
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-            <mat-card>
-                <h2>ÍNDICE DE RIESGO&nbsp;&nbsp;ATEROGENICO</h2>
-            </mat-card>
-            <table mat-table [dataSource]="indiceAterogenico" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header">
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-            <mat-card>
-                <h2>SEDIMENTO&nbsp;&nbsp;URINARIO</h2>
-            </mat-card>
-            <table mat-table [dataSource]="sedimentoUrinario" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header">
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-            <table mat-table [dataSource]="segundoExcel" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header">
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-            <mat-card>
-                <h2>PERFIL&nbsp;&nbsp;LIPIDO</h2>
-                Enzimático Teconologia: COBAS C311- ROCHE DIAGNOSTICS
-            </mat-card>
-            <table mat-table [dataSource]="perfilLipido" class="mat-elevation-z8">
-                <ng-container matColumnDef="nombre">
-                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                    <td mat-cell *matCellDef="let element">
-                        <p [ngClass]="{'header':element.header}">
-                            {{element.nombre}}
-                        </p>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-form-field *ngIf="!element.header">
-                            <input matInput [formControl]="control" (input)="cambioValor(element,$event.target)">
-                        </mat-form-field>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="referencia">
-                    <th mat-header-cell *matHeaderCellDef> Referencia </th>
-                    <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+      <form [formGroup]="formularioGeneral">
+        <div class="inicio">
+          <mat-card class="card_principal">
+            <mat-form-field>
+              <mat-label>Nombre y Apellido</mat-label>
+              <input matInput formControlName="nombre_apellido" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Obra Social</mat-label>
+              <input matInput formControlName="obra_social" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Fecha</mat-label>
+              <input
+                matInput
+                type="date"
+                formControlName="fecha"
+                max="9999-12-12"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Médico</mat-label>
+              <input matInput formControlName="nombre_medico" />
+            </mat-form-field>
+          </mat-card>
+          <mat-card class="card_principal">
+            LABORATORIO DE ANALISIS CLINICOS BIOQUIMICA : DEL RICCIO LAURA E.MP
+            180
+          </mat-card>
         </div>
-        </form>
+
+        <div class="tables">
+          <mat-card class="cabecera">
+            <input type="checkbox" />
+            <h2>HEMOGRAMA&nbsp;COMPLETO</h2>
+            &nbsp;&nbsp; Método: Citometria de Flujo Laser Modelo: SYSMEX
+            XS-1000
+          </mat-card>
+          <table mat-table [dataSource]="hemograma" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <p [ngClass]="{ header: element.header }">
+                  {{ element.nombre }}
+                </p>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+          <mat-card class="cabecera">
+            <input type="checkbox" />
+            <h2>COAGULORAMA&nbsp;BÁSICO</h2>
+            &nbsp;&nbsp; Coagulométrico turbidimétrico Automatizado Instrumento:
+            ST4 / ST-ART
+          </mat-card>
+          <table mat-table [dataSource]="coagulograma" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <p [ngClass]="{ header: element.header }">
+                  {{ element.nombre }}
+                </p>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>HEMOGLOBINA&nbsp;GLICOSILADA</h2>
+          </mat-card>
+          <table mat-table [dataSource]="hemoglobina" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>IONOGRAMA&nbsp;&nbsp;SERICO</h2>
+            Electrodo ión selectivo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS
+          </mat-card>
+          <table mat-table [dataSource]="ionograma" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>HEPATOGRAMA</h2>
+          </mat-card>
+          <table mat-table [dataSource]="hepatograma" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h3>ÍNDICE DE RIESGO&nbsp;ATEROGENICO</h3>
+          </mat-card>
+          <table
+            mat-table
+            [dataSource]="indiceAterogenico"
+            class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>SEDIMENTO&nbsp;&nbsp;URINARIO</h2>
+          </mat-card>
+          <table
+            mat-table
+            [dataSource]="sedimentoUrinario"
+            class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>PERFIL&nbsp;&nbsp;LIPIDO</h2>
+            Enzimático Teconologia: COBAS C311- ROCHE DIAGNOSTICS
+          </mat-card>
+          <table mat-table [dataSource]="perfilLipido" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox">
+                    <p [ngClass]="{ header: element.header }">
+                        {{ element.nombre }}
+                    </p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    matInput
+                    [formControl]="control"
+                    (input)="cambioValor(element, $event.target)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </form>
     </div>
-</div>
+  </div>
 </div>

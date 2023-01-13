@@ -25,9 +25,10 @@
     flex-direction: column;
 }
 
-h2{
+h2,h3{
     font-weight: 600;
 }
+
 
 mat-form-field{
     margin:0 10px;
@@ -44,12 +45,24 @@ mat-card{
 tr > td{
     width: 33%;
 }
+tr > td div:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    p{
+        margin:0 5px;
+    };
+}
 
 .tables ::ng-deep .mat-form-field-underline {
     display: none;
 }
 
-
+.cabecera{
+    display: flex;
+    align-items: center;
+}
 @media(max-width:480px){
     .container{
         img{
