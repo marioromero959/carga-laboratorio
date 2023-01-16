@@ -1,5 +1,5 @@
 <div class="btn-export">
-  <button mat-raised-button color="primary" (click)="exportPDF()">
+  <button mat-raised-button color="primary" (click)="generarPDF()">
     Exportar a pdf
   </button>
 </div>
@@ -40,7 +40,7 @@
 
         <div class="tables">
           <mat-card class="cabecera">
-            <input type="checkbox" />
+            <input type="checkbox" (change)="checkItem($event.target,hemograma,true,false)"/>
             <h2>HEMOGRAMA&nbsp;COMPLETO</h2>
             &nbsp;&nbsp; Método: Citometria de Flujo Laser Modelo: SYSMEX
             XS-1000
@@ -61,7 +61,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -76,7 +76,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
           <mat-card class="cabecera">
-            <input type="checkbox" />
+            <input type="checkbox" (change)="checkItem($event.target,coagulograma,false,true)"/>
             <h2>COAGULORAMA&nbsp;BÁSICO</h2>
             &nbsp;&nbsp; Coagulométrico turbidimétrico Automatizado Instrumento:
             ST4 / ST-ART
@@ -97,7 +97,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -120,7 +120,7 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
                     <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
                 </div>
               </td>
@@ -132,7 +132,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -156,7 +156,7 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
                     <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
                 </div>
               </td>
@@ -168,7 +168,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -191,7 +191,7 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
                     <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
                 </div>
               </td>
@@ -203,7 +203,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -229,7 +229,7 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
                     <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
                 </div>
               </td>
@@ -241,7 +241,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -267,7 +267,7 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
                     <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
                 </div>
               </td>
@@ -279,7 +279,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -303,7 +303,7 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
                     <p [ngClass]="{ header: element.header }">
                         {{ element.nombre }}
                     </p>
@@ -317,7 +317,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (input)="cambioValor(element, $event.target)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
