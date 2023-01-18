@@ -1030,12 +1030,12 @@ export class AppComponent implements OnInit {
 
   control: FormControl = new FormControl('');
   formularioGeneral: FormGroup = new FormGroup('');
-  doc = new jsPDF('p', 'px', 'a4');
+  // doc = new jsPDF('p', 'px', 'a4');
 
-  cargaHemograma:boolean = false;
-  cargaCoagruorama:boolean = false;
-  chequeados:any = [];
-  campos:any = []
+  cargaHemograma: boolean = false;
+  cargaCoagruorama: boolean = false;
+  chequeados: any = [];
+  campos: any = []
 
 
   constructor(private fb: FormBuilder) { }
@@ -1057,13 +1057,20 @@ export class AppComponent implements OnInit {
     });
   }
 
-  cambioValor(element: any, valor: any) {
-    let repetido = this.campos.find((el:any)=>el[0] == element.position)
-    if(repetido){
-      let index = this.campos.findIndex((el:any)=>el[0] == element.position)
-      this.campos.splice(index,1)
+  cambioValor(element: any, valor: any, isHemograma?: boolean, isCoagruorama?: boolean) {
+    if (isHemograma) {
+      element.valor = valor;
     }
-    this.campos.push([element.position,element.nombre,valor,element.referencia])
+    else if (isCoagruorama) {
+      element.valor = valor;
+    }
+
+    let repetido = this.chequeados.find((el: any) => el[0] == element.position)
+    if (repetido) {
+      let index = this.chequeados.findIndex((el: any) => el[0] == element.position)
+      this.chequeados.splice(index, 1)
+    }
+    this.chequeados.push([element.position, element.nombre, valor, element.referencia])
   }
 
 
@@ -1089,25 +1096,109 @@ export class AppComponent implements OnInit {
     )
   }
 
-  generarPDF() {
-    // console.log("item",[item.position,item.nombre,item.valor,item.referencia]);
-    if (this.cargaHemograma) {
-      this.doc.text("Hemograma Completo", this.doc.internal.pageSize.width / 2, 25, { align: 'center' })
-    }
-    else if (this.cargaCoagruorama) {
-      this.doc.text("Coagruorama Básico", this.doc.internal.pageSize.width / 2, 25, { align: 'center' })
-    }
-    console.log("campos",this.campos);
-    console.log("chequeados",this.chequeados);
-    this.chequeados.forEach((c:any) => {
-      if(this.campos.map((el:any)=>el[0]).includes(c[0])){
-        //comparo los chequeados con los escritos, si estan iguales los mando a imprimir, crear funcion  
-      }
-      
-      
-    });
+  range(concepto: string): boolean {
+    const posisionesOrdenadas = this.chequeados.sort().map((el: any) => el[0]);
 
-    // this.doc.save('table.pdf')
+    switch (concepto) {
+      case 'hemoglobina': return this.hemoglobina.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'ionograma': return this.ionograma.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'hepatograma': return this.hepatograma.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'riesgo': return this.indiceAterogenico.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'sedimento': return this.sedimentoUrinario.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'lipido': return this.perfilLipido.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      default:
+        break;
+    }
+    return false;
+  }
+
+  generarPDF() {
+    const doc = new jsPDF('p', 'px', 'a4');
+
+    if (this.cargaHemograma) {
+      const hemo = this.hemograma.map(e => [e.nombre, e.valor, e.referencia]);
+      doc.text("Hemograma Completo", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: hemo,
+      })
+    }
+    if (this.cargaCoagruorama) {
+      const coa = this.coagulograma.map(e => [e.nombre, e.valor, e.referencia]);
+      doc.text("Coagruorama Básico", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: coa,
+      })
+    }
+
+    if(this.range('hemoglobina')){
+      doc.text("hemoglobina", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      const hemoglobina = this.chequeados.filter((el:any)=>{return this.hemoglobina.map(el=>el.position).indexOf(el[0]) !== -1});
+      console.log(hemoglobina.map((el:any)=>[el[1],el[2],el[3]]));
+      
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: hemoglobina.map((el:any)=>[el[1],el[2],el[3]]),
+        // columnStyles:
+        styles:{
+             cellWidth:'wrap',
+          }
+      })
+    }
+    if(this.range('ionograma')){
+      doc.text("ionograma", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      const ionograma = this.chequeados.filter((el:any)=>{return this.ionograma.map(el=>el.position).indexOf(el[0]) !== -1});
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: ionograma.map((el:any)=>[el[1],el[2],el[3]]),
+      })
+    }
+    if(this.range('hepatograma')){
+      doc.text("hepatograma", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      const hepatograma = this.chequeados.filter((el:any)=>{return this.hepatograma.map(el=>el.position).indexOf(el[0]) !== -1});
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: hepatograma.map((el:any)=>[el[1],el[2],el[3]]),
+      })
+    }
+    if(this.range('riesgo')){
+      doc.text("riesgo", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      const indiceAterogenico = this.chequeados.filter((el:any)=>{return this.indiceAterogenico.map(el=>el.position).indexOf(el[0]) !== -1});
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: indiceAterogenico.map((el:any)=>[el[1],el[2],el[3]]),
+      })
+    }
+    if(this.range('sedimento')){
+      doc.text("sedimento", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      const sedimentoUrinario = this.chequeados.filter((el:any)=>{return this.sedimentoUrinario.map(el=>el.position).indexOf(el[0]) !== -1});
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: sedimentoUrinario.map((el:any)=>[el[1],el[2],el[3]]),
+      })
+    }
+    if(this.range('lipido')){
+      doc.text("lipido", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      const perfilLipido = this.chequeados.filter((el:any)=>{return this.perfilLipido.map(el=>el.position).indexOf(el[0]) !== -1});
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: perfilLipido.map((el:any)=>[el[1],el[2],el[3]]),
+      })
+    }
+    doc.save('table.pdf')
   }
 
   checkItem(target: any, item: any, isHemograma: boolean, isCoaglourama: boolean) {
@@ -1118,24 +1209,24 @@ export class AppComponent implements OnInit {
       else if (isCoaglourama) {
         this.cargaCoagruorama = true;
       }
-      else{
-        let repetido = this.chequeados.find((el:any)=>el.position == item.position)
-        if(!repetido){
-          this.chequeados.push([item.position,item.nombre,item.valor,item.referencia])
+      else {
+        let repetido = this.chequeados.find((el: any) => el.position == item.position)
+        if (!repetido) {
+          this.chequeados.push([item.position, item.nombre, item.valor, item.referencia])
         }
       }
-    }else{
+    } else {
       if (isHemograma) {
         this.cargaHemograma = false;
       }
       else if (isCoaglourama) {
         this.cargaCoagruorama = false;
       }
-      else{
-        let repetido = this.chequeados.find((el:any)=>el[0] == item.position)
-        if(repetido){
-          let index = this.campos.findIndex((el:any)=>el[0] == item.position)
-          this.chequeados.splice(index,1)
+      else {
+        let repetido = this.chequeados.find((el: any) => el[0] == item.position)
+        if (repetido) {
+          let index = this.campos.findIndex((el: any) => el[0] == item.position)
+          this.chequeados.splice(index, 1)
         }
       }
     }

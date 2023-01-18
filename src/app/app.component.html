@@ -61,7 +61,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event)"
+                    (ngModelChange)="cambioValor(element, $event,true)"
                   />
                 </mat-form-field>
               </td>
@@ -97,7 +97,7 @@
                   <input
                     matInput
                     [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event)"
+                    (ngModelChange)="cambioValor(element, $event,false,true)"
                   />
                 </mat-form-field>
               </td>

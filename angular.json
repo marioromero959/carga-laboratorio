@@ -17,6 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "html2canvas",
+              "rgbcolor",
+              "dompurify",
+              "jspdf",
+              "raf",
+              "@babel/runtime-corejs3"
+            ],
             "outputPath": "dist/resultados-lab",
             "index": "src/index.html",
             "main": "src/main.ts",
