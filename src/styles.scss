@@ -6,7 +6,7 @@
 
 :root{
    --primary:#78aaff;
-   --accent:#ffffff;
+   --accent:#119987;
    --warn:#b92500;
 }
 
@@ -35,8 +35,33 @@ $white-palette: (
    // ... continues to 900
  )
 );
+$grey-palette: (
+ 50:  #119987,
+ 100: #119987,
+ 200: #119987,
+ 300: #119987,
+ 400: #119987,
+ 500: #119987,
+ 600: #119987,
+ 700: #119987,
+ 800: #119987,
+ 900: #119987,
+ contrast: (
+   50:  rgba(#fff, 0.87),
+   100: rgba(#fff, 0.87),
+   200: rgba(#fff, 0.87),
+   300: rgba(#fff, 0.87),
+   400: rgba(#fff, 0.87),
+   500: rgba(#fff, 0.87),
+   600: rgba(#fff, 0.87),
+   700: rgba(#fff, 0.87),
+   800: rgba(#fff, 0.87),
+   900: rgba(#fff, 0.87),
+   // ... continues to 900
+ )
+);
 
-$my-primary: mat.define-palette($white-palette, 500);
+$my-primary: mat.define-palette($grey-palette, 500);
 $my-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
 $my-warn: mat.define-palette(mat.$red-palette);
 

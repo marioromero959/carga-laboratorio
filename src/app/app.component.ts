@@ -1036,7 +1036,7 @@ export class AppComponent implements OnInit {
   cargaCoagruorama: boolean = false;
   chequeados: any = [];
   campos: any = []
-
+  tableY: number = 0;
 
   constructor(private fb: FormBuilder) { }
 
@@ -1124,78 +1124,146 @@ export class AppComponent implements OnInit {
     return false;
   }
 
-  generarPDF() {
-    const doc = new jsPDF('p', 'px', 'a4');
+
+  getTableInfo(table: any) {
+    this.tableY = table.cursor.y
+  }
+
+
+  async generarPDF() {
+    let doc = new jsPDF('p', 'px', 'a4');
+    // doc.addImage(this.pdf.nativeElement, 'JPEG', 10, 10, 200, 70)
+    await doc.html(this.pdf.nativeElement, {
+      callback: (docu) => {
+        this.tableY = 180;
+        doc = docu;
+      },
+      margin: 10,
+      autoPaging: "slice",
+      filename: "Protocolo CREO",
+      image: undefined,
+      html2canvas: undefined,
+      jsPDF: undefined,
+      x: undefined,
+      y: 10,
+      width: 400,
+      windowWidth: 1000,
+      fontFaces: undefined,
+    }
+    )
 
     if (this.cargaHemograma) {
       const hemo = this.hemograma.map(e => [e.nombre, e.valor, e.referencia]);
-      doc.text("Hemograma Completo", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      doc.text("HEMOGRAMA COMPLETO", 30, this.tableY + 25, { align: 'left' })
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: hemo,
+        styles: {
+          cellWidth: 128.8,
+          // fillColor:'white',
+        },
+        // headStyles:{fillColor:'white',textColor:'black'},
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
     if (this.cargaCoagruorama) {
       const coa = this.coagulograma.map(e => [e.nombre, e.valor, e.referencia]);
-      doc.text("Coagruorama Básico", doc.internal.pageSize.width / 2, 25, { align: 'center' })
+      doc.text("COAGRUORAMA BÁSICO", 30, this.tableY + 25, { align: 'left' })
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: coa,
+        styles: {
+          cellWidth: 128.8
+        },
+        margin: { top: 40 },
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
 
-    if(this.range('hemoglobina')){
-      doc.text("hemoglobina", doc.internal.pageSize.width / 2, 25, { align: 'center' })
-      const hemoglobina = this.chequeados.filter((el:any)=>{return this.hemoglobina.map(el=>el.position).indexOf(el[0]) !== -1});
-      console.log(hemoglobina.map((el:any)=>[el[1],el[2],el[3]]));
-      
+    if (this.range('hemoglobina')) {
+      doc.text("HEMOGLOBINA GLICOSILADA", 30, this.tableY + 25, { align: 'left' })
+      const hemoglobina = this.chequeados.filter((el: any) => { return this.hemoglobina.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
-        body: hemoglobina.map((el:any)=>[el[1],el[2],el[3]]),
-        // columnStyles:
-        styles:{
-             cellWidth:'wrap',
-          }
+        body: hemoglobina.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
-    if(this.range('ionograma')){
-      doc.text("ionograma", doc.internal.pageSize.width / 2, 25, { align: 'center' })
-      const ionograma = this.chequeados.filter((el:any)=>{return this.ionograma.map(el=>el.position).indexOf(el[0]) !== -1});
+    if (this.range('ionograma')) {
+      doc.text("IONOGRAMA SÉRICO", 30, this.tableY + 25, { align: 'left' })
+      const ionograma = this.chequeados.filter((el: any) => { return this.ionograma.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
-        body: ionograma.map((el:any)=>[el[1],el[2],el[3]]),
+        body: ionograma.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
-    if(this.range('hepatograma')){
-      doc.text("hepatograma", doc.internal.pageSize.width / 2, 25, { align: 'center' })
-      const hepatograma = this.chequeados.filter((el:any)=>{return this.hepatograma.map(el=>el.position).indexOf(el[0]) !== -1});
+    if (this.range('hepatograma')) {
+      doc.text("HEPATOGRAMA", 30, this.tableY + 25, { align: 'left' })
+      const hepatograma = this.chequeados.filter((el: any) => { return this.hepatograma.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
-        body: hepatograma.map((el:any)=>[el[1],el[2],el[3]]),
+        body: hepatograma.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
-    if(this.range('riesgo')){
-      doc.text("riesgo", doc.internal.pageSize.width / 2, 25, { align: 'center' })
-      const indiceAterogenico = this.chequeados.filter((el:any)=>{return this.indiceAterogenico.map(el=>el.position).indexOf(el[0]) !== -1});
+    if (this.range('riesgo')) {
+      doc.text("ÍNDICE DE RIESGO ATEROGENICO", 30, this.tableY + 25, { align: 'left' })
+      const indiceAterogenico = this.chequeados.filter((el: any) => { return this.indiceAterogenico.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
-        body: indiceAterogenico.map((el:any)=>[el[1],el[2],el[3]]),
+        body: indiceAterogenico.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
-    if(this.range('sedimento')){
-      doc.text("sedimento", doc.internal.pageSize.width / 2, 25, { align: 'center' })
-      const sedimentoUrinario = this.chequeados.filter((el:any)=>{return this.sedimentoUrinario.map(el=>el.position).indexOf(el[0]) !== -1});
+    if (this.range('sedimento')) {
+      doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
+      const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
-        body: sedimentoUrinario.map((el:any)=>[el[1],el[2],el[3]]),
+        body: sedimentoUrinario.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
-    if(this.range('lipido')){
-      doc.text("lipido", doc.internal.pageSize.width / 2, 25, { align: 'center' })
-      const perfilLipido = this.chequeados.filter((el:any)=>{return this.perfilLipido.map(el=>el.position).indexOf(el[0]) !== -1});
+    if (this.range('lipido')) {
+      doc.text("PERFIL LIPIDO", 30, this.tableY + 25, { align: 'left' })
+      const perfilLipido = this.chequeados.filter((el: any) => { return this.perfilLipido.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
-        body: perfilLipido.map((el:any)=>[el[1],el[2],el[3]]),
+        body: perfilLipido.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
       })
     }
     doc.save('table.pdf')
