@@ -645,25 +645,11 @@ export class AppComponent implements OnInit {
     },
     {
       position: 130,
-      header: true,
-      nombre: 'Proteinuria',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 131,
-      header: false,
-      nombre: 'Diuresis:',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 132,
       header: false,
       nombre: 'Proteinuria',
       valor: '',
-      referencia: '',
-    },
+      referencia: 'vr: 0.03 a 0.14 g/24h',
+    }
   ];
   sueltos1: Table[] = [
     {
@@ -903,55 +889,6 @@ export class AppComponent implements OnInit {
       valor: '',
       referencia:
         'Valores de referencia: Mujer adulta : 2.0 a 8.5 pg/ml Hombre adulto : 50.0 a 220.0 pg/ml',
-    },
-    {
-      position: 100,
-      header: false,
-      nombre: 'Diuresis',
-      valor: '',
-      referencia: 'Adulto: 1200 a 1500 ml',
-    },
-    {
-      position: 101,
-      header: false,
-      nombre: 'Volumen Minuto',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 102,
-      header: false,
-      nombre: 'Creatinina urinaria',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 103,
-      header: false,
-      nombre: 'Creatinina en sangre',
-      valor: '',
-      referencia: '0.60 a 1.15 mg/dl',
-    },
-    {
-      position: 104,
-      header: false,
-      nombre: 'Proteinuria',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 105,
-      header: false,
-      nombre: 'Diuresis:',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 106,
-      header: false,
-      nombre: 'Proteinuria',
-      valor: '',
-      referencia: '',
     },
     {
       position: 107,

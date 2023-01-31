@@ -347,8 +347,6 @@
                 <mat-form-field *ngIf="!element.header">
                   <input
                     type="text"
-                    currencyMask
-                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event)"
