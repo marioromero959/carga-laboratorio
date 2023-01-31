@@ -234,7 +234,7 @@ export class AppComponent implements OnInit {
       position: 30,
       header: false,
       nombre:
-        'Inmunoturbidimetria Teconologia: COBAS C111- ROCHE DIAGNOSTICS Material examinado: sangre entera',
+        'HEMOGLOBINA GLICOSILADA Inmunoturbidimetria Teconologia: COBAS C111- ROCHE DIAGNOSTICS Material examinado: sangre entera',
       valor: '',
       referencia: 'vr: 4.8 a 6.0',
     },
@@ -482,7 +482,190 @@ export class AppComponent implements OnInit {
       nombre: 'Aspecto del Plasma',
       valor: '',
       referencia: '',
+    }
+  ]
+  sedimentoUrinario: Table[] = [
+    {
+      position: 73,
+      header: false,
+      nombre: 'Leucocitos',
+      valor: '',
+      referencia: '',
     },
+    {
+      position: 74,
+      header: false,
+      nombre: 'Células Epiteliales',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 75,
+      header: false,
+      nombre: 'Hematíes',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 76,
+      header: false,
+      nombre: 'Color ',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 77,
+      header: false,
+      nombre: 'Aspecto',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 78,
+      header: false,
+      nombre: 'Ph',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 79,
+      header: false,
+      nombre: 'Densidad ',
+      valor: '',
+      referencia: '',
+  }
+  ]
+  perfilLipido: Table[] = [
+    {
+      position: 115,
+      header: false,
+      nombre:
+        'Colesterol Total - Enzimatico Colorimetrico Tecnologia: COBAS C311- ROCHE DIAGNOSTICS',
+      valor: '',
+      referencia: 'Deseable < 180 mg/dl Elevado > 200 mg/dl',
+    },
+    {
+      position: 116,
+      header: false,
+      nombre:
+        'HDL colesterol - colorimetrico enzimatico homogeneo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS Material examinado: Suero',
+      valor: '',
+      referencia:
+        'Sin riesgo Mujeres > 65 mg/dl Hombres > 55 mg/dl Riesgo Moderado Mujeres 45-65 mg/dl Hombres 35-55 mg/dl Alto Riesgo Mujeres < 45 mg/dl Hombres < 35 mg/dl',
+    },
+    {
+      position: 117,
+      header: false,
+      nombre:
+        'LDL colesterol - colorimetrico enzimatico homogeneo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS Material examinado: Suero',
+      valor: '',
+      referencia: 'Valor deseable < 100 Valor elevado 130 a 159',
+    },
+    {
+      position: 118,
+      header: false,
+      nombre: 'Colesterol NO - HDL',
+      valor: '',
+      referencia:
+        'Deseable < 130 mg/dl Riesgo Bajo 131 a 189 mg/dl Riesgo alto: 190 a 219 mg/dl Riesgo Muy Alto: > 220 mg/dl',
+    },
+    {
+      position: 119,
+      header: false,
+      nombre: 'VLDL-colesterol, Lipoproteina de muy Baja densidad',
+      valor: '',
+      referencia: 'vr: 10 a 40 mg/dl',
+    },
+    {
+      position: 120,
+      header: false,
+      nombre:
+        'Trigliceridos - Enzimatico colorimetrico Teconologia: COBAS C111- ROCHE DIAGNOSTICS Material examinado: Suero',
+      valor: '',
+      referencia:
+        'vr: 50 - 150 mg/dl Según NCEP (European atherosclerosis Society)',
+    }
+    ]
+  clearence: Table[] = [
+    {
+      position: 122,
+      header: false,
+      nombre: 'Peso',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 123,
+      header: false,
+      nombre: 'Altura',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 124,
+      header: false,
+      nombre: 'Superficie Corporal',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 125,
+      header: false,
+      nombre: 'Diuresis',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 126,
+      header: false,
+      nombre: 'Volumen Minuto',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 127,
+      header: false,
+      nombre: 'Taza de Filtracion Glomerular',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 128,
+      header: false,
+      nombre: 'Creatinina urinaria',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 129,
+      header: false,
+      nombre: 'Creatinina en sangre',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 130,
+      header: true,
+      nombre: 'Proteinuria',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 131,
+      header: false,
+      nombre: 'Diuresis:',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 132,
+      header: false,
+      nombre: 'Proteinuria',
+      valor: '',
+      referencia: '',
+    },
+  ];
+  sueltos1: Table[] = [
     {
       position: 63,
       header: false,
@@ -567,56 +750,7 @@ export class AppComponent implements OnInit {
       referencia: 'Hasta 30.2 U/ml',
     },
   ];
-  sedimentoUrinario: Table[] = [
-    {
-      position: 73,
-      header: false,
-      nombre: 'Leucocitos',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 74,
-      header: false,
-      nombre: 'Células Epiteliales',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 75,
-      header: false,
-      nombre: 'Hematíes',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 76,
-      header: false,
-      nombre: 'Color ',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 77,
-      header: false,
-      nombre: 'Aspecto',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 78,
-      header: false,
-      nombre: 'Ph',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 79,
-      header: false,
-      nombre: 'Densidad ',
-      valor: '',
-      referencia: '',
-    },
+  sueltos2: Table[] = [
     {
       position: 80,
       header: false,
@@ -771,13 +905,6 @@ export class AppComponent implements OnInit {
         'Valores de referencia: Mujer adulta : 2.0 a 8.5 pg/ml Hombre adulto : 50.0 a 220.0 pg/ml',
     },
     {
-      position: 99,
-      header: false,
-      nombre: 'Clearence de Creatinina',
-      valor: '',
-      referencia: '',
-    },
-    {
       position: 100,
       header: false,
       nombre: 'Diuresis',
@@ -890,148 +1017,11 @@ export class AppComponent implements OnInit {
       referencia: 'VR: 10 a 40 mg/dl',
     },
   ];
-  perfilLipido: Table[] = [
-    {
-      position: 115,
-      header: false,
-      nombre:
-        'Colesterol Total - Enzimatico Colorimetrico Tecnologia: COBAS C311- ROCHE DIAGNOSTICS',
-      valor: '',
-      referencia: 'Deseable < 180 mg/dl Elevado > 200 mg/dl',
-    },
-    {
-      position: 116,
-      header: false,
-      nombre:
-        'HDL colesterol - colorimetrico enzimatico homogeneo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS Material examinado: Suero',
-      valor: '',
-      referencia:
-        'Sin riesgo Mujeres > 65 mg/dl Hombres > 55 mg/dl Riesgo Moderado Mujeres 45-65 mg/dl Hombres 35-55 mg/dl Alto Riesgo Mujeres < 45 mg/dl Hombres < 35 mg/dl',
-    },
-    {
-      position: 117,
-      header: false,
-      nombre:
-        'LDL colesterol - colorimetrico enzimatico homogeneo Tecnologia: COBAS C311- ROCHE DIAGNOSTICS Material examinado: Suero',
-      valor: '',
-      referencia: 'Valor deseable < 100 Valor elevado 130 a 159',
-    },
-    {
-      position: 118,
-      header: false,
-      nombre: 'Colesterol NO - HDL',
-      valor: '',
-      referencia:
-        'Deseable < 130 mg/dl Riesgo Bajo 131 a 189 mg/dl Riesgo alto: 190 a 219 mg/dl Riesgo Muy Alto: > 220 mg/dl',
-    },
-    {
-      position: 119,
-      header: false,
-      nombre: 'VLDL-colesterol, Lipoproteina de muy Baja densidad',
-      valor: '',
-      referencia: 'vr: 10 a 40 mg/dl',
-    },
-    {
-      position: 120,
-      header: false,
-      nombre:
-        'Trigliceridos - Enzimatico colorimetrico Teconologia: COBAS C111- ROCHE DIAGNOSTICS Material examinado: Suero',
-      valor: '',
-      referencia:
-        'vr: 50 - 150 mg/dl Según NCEP (European atherosclerosis Society)',
-    },
-    {
-      position: 121,
-      header: true,
-      nombre: 'Clearence de Creatinina',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 122,
-      header: false,
-      nombre: 'Peso',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 123,
-      header: false,
-      nombre: 'Altura',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 124,
-      header: false,
-      nombre: 'Superficie Corporal',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 125,
-      header: false,
-      nombre: 'Diuresis',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 126,
-      header: false,
-      nombre: 'Volumen Minuto',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 127,
-      header: false,
-      nombre: 'Taza de Filtracion Glomerular',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 128,
-      header: false,
-      nombre: 'Creatinina urinaria',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 129,
-      header: false,
-      nombre: 'Creatinina en sangre',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 130,
-      header: true,
-      nombre: 'Proteinuria',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 131,
-      header: false,
-      nombre: 'Diuresis:',
-      valor: '',
-      referencia: '',
-    },
-    {
-      position: 132,
-      header: false,
-      nombre: 'Proteinuria',
-      valor: '',
-      referencia: '',
-    },
-  ];
 
   @ViewChild('pdf', { static: false }) pdf!: ElementRef;
 
   control: FormControl = new FormControl('');
   formularioGeneral: FormGroup = new FormGroup('');
-  // doc = new jsPDF('p', 'px', 'a4');
-
   cargaHemograma: boolean = false;
   cargaCoagruorama: boolean = false;
   chequeados: any = [];
@@ -1052,8 +1042,6 @@ export class AppComponent implements OnInit {
       nombre_medico: [],
       hemogramaCompleto: this.fb.array([]),
       coagluorama: this.fb.array([]),
-      ionograma: this.fb.array([]),
-      indice_aterogenico: this.fb.array([]),
     });
   }
 
@@ -1118,6 +1106,15 @@ export class AppComponent implements OnInit {
       case 'lipido': return this.perfilLipido.map(el => el.position).some(function (element) {
         return posisionesOrdenadas.indexOf(element) !== -1
       });
+      case 'sueltos1': return this.sueltos1.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'sueltos2': return this.sueltos2.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
+      case 'clearence': return this.clearence.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
       default:
         break;
     }
@@ -1132,7 +1129,6 @@ export class AppComponent implements OnInit {
 
   async generarPDF() {
     let doc = new jsPDF('p', 'px', 'a4');
-    // doc.addImage(this.pdf.nativeElement, 'JPEG', 10, 10, 200, 70)
     await doc.html(this.pdf.nativeElement, {
       callback: (docu) => {
         this.tableY = 180;
@@ -1160,9 +1156,9 @@ export class AppComponent implements OnInit {
         body: hemo,
         styles: {
           cellWidth: 128.8,
-          // fillColor:'white',
+          // fillColor:'#39968b',
         },
-        // headStyles:{fillColor:'white',textColor:'black'},
+        headStyles:{fillColor:'#39968b',textColor:'white'},
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
       })
@@ -1176,6 +1172,7 @@ export class AppComponent implements OnInit {
         styles: {
           cellWidth: 128.8
         },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
         margin: { top: 40 },
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
@@ -1183,7 +1180,7 @@ export class AppComponent implements OnInit {
     }
 
     if (this.range('hemoglobina')) {
-      doc.text("HEMOGLOBINA GLICOSILADA", 30, this.tableY + 25, { align: 'left' })
+      // doc.text("HEMOGLOBINA GLICOSILADA", 30, this.tableY + 25, { align: 'left' })
       const hemoglobina = this.chequeados.filter((el: any) => { return this.hemoglobina.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
@@ -1191,6 +1188,7 @@ export class AppComponent implements OnInit {
         styles: {
           cellWidth: 128.8
         },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
@@ -1205,6 +1203,7 @@ export class AppComponent implements OnInit {
         styles: {
           cellWidth: 128.8
         },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
@@ -1219,34 +1218,7 @@ export class AppComponent implements OnInit {
         styles: {
           cellWidth: 128.8
         },
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
-    }
-    if (this.range('riesgo')) {
-      doc.text("ÍNDICE DE RIESGO ATEROGENICO", 30, this.tableY + 25, { align: 'left' })
-      const indiceAterogenico = this.chequeados.filter((el: any) => { return this.indiceAterogenico.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: indiceAterogenico.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
-    }
-    if (this.range('sedimento')) {
-      doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
-      const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: sedimentoUrinario.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
@@ -1261,12 +1233,89 @@ export class AppComponent implements OnInit {
         styles: {
           cellWidth: 128.8
         },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
       })
     }
-    doc.save('table.pdf')
+    if (this.range('riesgo')) {
+      doc.text("ÍNDICE DE RIESGO ATEROGENICO", 30, this.tableY + 25, { align: 'left' })
+      const indiceAterogenico = this.chequeados.filter((el: any) => { return this.indiceAterogenico.map(el => el.position).indexOf(el[0]) !== -1 });
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: indiceAterogenico.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
+      })
+    }
+    if (this.range('sedimento')) {
+      doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
+      const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: sedimentoUrinario.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
+      })
+    }
+    if (this.range('sueltos2')) {
+      // doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
+      const sueltos2 = this.chequeados.filter((el: any) => { return this.sueltos2.map(el => el.position).indexOf(el[0]) !== -1 });
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: sueltos2.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
+      })
+    }
+    if (this.range('sueltos1')) {
+      // doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
+      const sueltos1 = this.chequeados.filter((el: any) => { return this.sueltos1.map(el => el.position).indexOf(el[0]) !== -1 });
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: sueltos1.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
+      })
+    }
+    if (this.range('clearence')) {
+      doc.text("CLEARENCE DE CREATININA", 30, this.tableY + 25, { align: 'left' })
+      const clearence = this.chequeados.filter((el: any) => { return this.clearence.map(el => el.position).indexOf(el[0]) !== -1 });
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: clearence.map((el: any) => [el[1], el[2], el[3]]),
+        styles: {
+          cellWidth: 128.8
+        },
+        headStyles:{fillColor:'#39968b',textColor:'white'},
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
+      })
+    }
+
+    doc.save('informe-laboratorio.pdf')
   }
 
   checkItem(target: any, item: any, isHemograma: boolean, isCoaglourama: boolean) {

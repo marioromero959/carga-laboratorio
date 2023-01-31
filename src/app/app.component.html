@@ -59,8 +59,19 @@
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field *ngIf="element.position < 16">
                   <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
+                    matInput
+                    [formControl]="control"
+                    (ngModelChange)="cambioValor(element, $event,true)"
+                  />
+                </mat-form-field>
+                <mat-form-field *ngIf="element.position > 16">
+                  <input
+                    type="text"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event,true)"
@@ -97,6 +108,9 @@
               <td mat-cell *matCellDef="let element">
                 <mat-form-field *ngIf="!element.header">
                   <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event,false,true)"
@@ -114,10 +128,9 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
 
-          <mat-card>
-            <h2>HEMOGLOBINA&nbsp;GLICOSILADA</h2>
-          </mat-card>
-          <table mat-table [dataSource]="hemoglobina" class="mat-elevation-z8">
+          <table mat-table [dataSource]="hemoglobina" class="mat-elevation-z8 borde">
+            <br>
+            <hr>
             <ng-container matColumnDef="nombre">
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
@@ -132,6 +145,9 @@
               <td mat-cell *matCellDef="let element">
                 <mat-form-field *ngIf="!element.header">
                   <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event)"
@@ -168,6 +184,9 @@
               <td mat-cell *matCellDef="let element">
                 <mat-form-field *ngIf="!element.header">
                   <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event)"
@@ -203,82 +222,9 @@
               <td mat-cell *matCellDef="let element">
                 <mat-form-field *ngIf="!element.header">
                   <input
-                    matInput
-                    [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event)"
-                  />
-                </mat-form-field>
-              </td>
-            </ng-container>
-            <ng-container matColumnDef="referencia">
-              <th mat-header-cell *matHeaderCellDef>Referencia</th>
-              <td mat-cell *matCellDef="let element">
-                {{ element.referencia }}
-              </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-          </table>
-
-          <mat-card>
-            <h3>ÍNDICE DE RIESGO&nbsp;ATEROGENICO</h3>
-          </mat-card>
-          <table
-            mat-table
-            [dataSource]="indiceAterogenico"
-            class="mat-elevation-z8">
-            <ng-container matColumnDef="nombre">
-              <th mat-header-cell *matHeaderCellDef>Nombre</th>
-              <td mat-cell *matCellDef="let element">
-                <div>
-                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
-                </div>
-              </td>
-            </ng-container>
-            <ng-container matColumnDef="valor">
-              <th mat-header-cell *matHeaderCellDef>Valor</th>
-              <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
-                  <input
-                    matInput
-                    [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event)"
-                  />
-                </mat-form-field>
-              </td>
-            </ng-container>
-            <ng-container matColumnDef="referencia">
-              <th mat-header-cell *matHeaderCellDef>Referencia</th>
-              <td mat-cell *matCellDef="let element">
-                {{ element.referencia }}
-              </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-          </table>
-
-          <mat-card>
-            <h2>SEDIMENTO&nbsp;&nbsp;URINARIO</h2>
-          </mat-card>
-          <table
-            mat-table
-            [dataSource]="sedimentoUrinario"
-            class="mat-elevation-z8">
-            <ng-container matColumnDef="nombre">
-              <th mat-header-cell *matHeaderCellDef>Nombre</th>
-              <td mat-cell *matCellDef="let element">
-                <div>
-                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
-                </div>
-              </td>
-            </ng-container>
-            <ng-container matColumnDef="valor">
-              <th mat-header-cell *matHeaderCellDef>Valor</th>
-              <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
-                  <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event)"
@@ -317,6 +263,209 @@
               <td mat-cell *matCellDef="let element">
                 <mat-form-field *ngIf="!element.header">
                   <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
+                    matInput
+                    [formControl]="control"
+                    (ngModelChange)="cambioValor(element, $event)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+
+          <mat-card>
+            <h3>ÍNDICE DE RIESGO&nbsp;ATEROGENICO</h3>
+          </mat-card>
+          <table
+            mat-table
+            [dataSource]="indiceAterogenico"
+            class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
+                    matInput
+                    [formControl]="control"
+                    (ngModelChange)="cambioValor(element, $event)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>SEDIMENTO&nbsp;&nbsp;URINARIO</h2>
+          </mat-card>
+          <table
+            mat-table
+            [dataSource]="sedimentoUrinario"
+            class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
+                    matInput
+                    [formControl]="control"
+                    (ngModelChange)="cambioValor(element, $event)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <table
+            mat-table
+            [dataSource]="sueltos2"
+            class="mat-elevation-z8 borde">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
+                    matInput
+                    [formControl]="control"
+                    (ngModelChange)="cambioValor(element, $event)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+          
+          <table
+            mat-table
+            [dataSource]="sueltos1"
+            class="mat-elevation-z8 borde">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
+                    matInput
+                    [formControl]="control"
+                    (ngModelChange)="cambioValor(element, $event)"
+                  />
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="referencia">
+              <th mat-header-cell *matHeaderCellDef>Referencia</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.referencia }}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-card>
+            <h2>CLEARENCE&nbsp;&nbsp;DE&nbsp;&nbsp;CREATININA</h2>
+          </mat-card>
+          <table
+            mat-table
+            [dataSource]="clearence"
+            class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">
+                <div>
+                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
+                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="valor">
+              <th mat-header-cell *matHeaderCellDef>Valor</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-form-field *ngIf="!element.header">
+                  <input
+                    type="text"
+                    currencyMask
+                    [options]="{ prefix:'', suffix : '',precision:2, thousands: '.', decimal: ',' , nullable: false}"
                     matInput
                     [formControl]="control"
                     (ngModelChange)="cambioValor(element, $event)"

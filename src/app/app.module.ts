@@ -11,8 +11,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
 
-
+export const customCurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "",
+  suffix: "",
+  thousands: ".",
+  nullable: false,
+  inputMode: CurrencyMaskInputMode.NATURAL
+};
 
 @NgModule({
   declarations: [
@@ -24,6 +36,7 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
     //material
     MatCardModule,
     MatButtonModule,

@@ -63,6 +63,11 @@ tr > td div:nth-child(1) {
     display: flex;
     align-items: center;
 }
+
+.borde{
+    border-top:1px solid #39968b;
+}
+
 @media(max-width:480px){
     .container{
         img{

@@ -25,6 +25,7 @@
     "html2pdf.js": "^0.10.1",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.28",
+    "ngx-currency": "^3.0.0",
     "pdfmake": "^0.2.6",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
