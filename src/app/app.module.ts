@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
+import { DecimalDirective } from './decimal.directive';
 
 export const customCurrencyMaskConfig = {
   align: "right",
@@ -28,7 +29,8 @@ export const customCurrencyMaskConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DecimalDirective
   ],
   imports: [
     BrowserModule,
