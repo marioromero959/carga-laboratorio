@@ -23,6 +23,14 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
+    mat-form-field {
+        label{
+        color: #39968b;
+        }
+        input{
+            margin-top: 10px;
+        }
+}
 }
 
 h2,h3{

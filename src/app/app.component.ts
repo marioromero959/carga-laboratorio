@@ -1068,7 +1068,7 @@ export class AppComponent implements OnInit {
     let doc = new jsPDF('p', 'px', 'a4');
     await doc.html(this.pdf.nativeElement, {
       callback: (docu) => {
-        this.tableY = 180;
+        this.tableY = 210;
         doc = docu;
       },
       margin: 10,
@@ -1091,10 +1091,7 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: hemo,
-        styles: {
-          cellWidth: 128.8,
-          // fillColor:'#39968b',
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         startY: this.tableY + 35,
         didDrawPage: (data) => this.getTableInfo(data)
@@ -1106,9 +1103,7 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: coa,
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         margin: { top: 40 },
         startY: this.tableY + 35,
@@ -1117,14 +1112,11 @@ export class AppComponent implements OnInit {
     }
 
     if (this.range('hemoglobina')) {
-      // doc.text("HEMOGLOBINA GLICOSILADA", 30, this.tableY + 25, { align: 'left' })
       const hemoglobina = this.chequeados.filter((el: any) => { return this.hemoglobina.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: hemoglobina.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1137,9 +1129,7 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: ionograma.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1152,9 +1142,7 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: hepatograma.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1167,9 +1155,7 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: perfilLipido.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1182,24 +1168,7 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: indiceAterogenico.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
-    }
-    if (this.range('sedimento')) {
-      doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
-      const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: sedimentoUrinario.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1207,14 +1176,11 @@ export class AppComponent implements OnInit {
       })
     }
     if (this.range('sueltos2')) {
-      // doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
       const sueltos2 = this.chequeados.filter((el: any) => { return this.sueltos2.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: sueltos2.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1222,14 +1188,11 @@ export class AppComponent implements OnInit {
       })
     }
     if (this.range('sueltos1')) {
-      // doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
       const sueltos1 = this.chequeados.filter((el: any) => { return this.sueltos1.map(el => el.position).indexOf(el[0]) !== -1 });
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: sueltos1.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
@@ -1242,9 +1205,20 @@ export class AppComponent implements OnInit {
       autoTable(doc, {
         head: [['Nombre', 'Valor', 'Referencia']],
         body: clearence.map((el: any) => [el[1], el[2], el[3]]),
-        styles: {
-          cellWidth: 128.8
-        },
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
+        headStyles:{fillColor:'#39968b',textColor:'white'},
+        pageBreak: 'auto',
+        startY: this.tableY + 35,
+        didDrawPage: (data) => this.getTableInfo(data)
+      })
+    }
+    if (this.range('sedimento')) {
+      doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
+      const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
+      autoTable(doc, {
+        head: [['Nombre', 'Valor', 'Referencia']],
+        body: sedimentoUrinario.map((el: any) => [el[1], el[2], el[3]]),
+        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak: 'auto',
         startY: this.tableY + 35,
