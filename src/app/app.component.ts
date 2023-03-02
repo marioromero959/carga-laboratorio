@@ -954,6 +954,183 @@ export class AppComponent implements OnInit {
       referencia: 'VR: 10 a 40 mg/dl',
     },
   ];
+  sueltos3: Table[] = [
+    {
+      position: 131,
+      header: false,
+      nombre:
+        'Estradiol - Electroquimioluminiscencia In',
+      valor: '',
+      referencia:
+        'Valor de Referencia: Hombre adulto: Hasta 39.8 pg/ml Mujer fase folicular: 19.5 a 144.2 pg/ml Mujer mitad del ciclo: 63.9 a 356.7 pg/ml Mujer fase lútea: 55.8 a 214.2 pg/ml Postmenopausia: menor de 32.2 pg/ml Embarazadas: 1er Trimestre: 215 a 4300 pg/ml Niños (1 a 10 años): Varones: menor a 20 pg/ml Niñas: 6.00 a 27.0 pg/ml.',
+    },
+    {
+      position: 132,
+      header: false,
+      nombre:
+        'Hormona Folículoestimulante (FSH) - Electroquimioluminiscencia In',
+      valor: '',
+      referencia: 'Valor de Referencia: Hombre adulto: 1.4 a 18.1 mUI/ml Mujer fase folicular: 2.5 a 10.2 mUI/ml Mujer mitad del ciclo: 3.4 a 33.4 mUI/ml Mujer fase lútea: 1.5 a 9.1 mUI/ml Mujer postmenopausia: 23.0 a 116.3 mUI/ml',
+    },
+    {
+      position: 133,
+      header: false,
+      nombre:
+        'Hormona Luteinizante (LH) - Electroquimioluminiscencia In',
+      valor: '',
+      referencia:
+        'Valor de Referencia: Hombre adulto: 1.5 a 9.3 mUI/ml Mujer fase folicular: 1.9 a 12.5 Mui/ml Mujer mitad del ciclo: 8.7 a 76.3 Mui/ml Mujer fase lútea: 0.5 a 16.9 Mui/ml Mujer pos menopausia: 15.9 a 54.0 Mui/Ml',
+    },
+    {
+      position: 134,
+      header: false,
+      nombre: 'Progesterona - Electroquimioluminiscencia In',
+      valor: '',
+      referencia: 'vr: Hombres 0.28 a 1.22 ng/ml Mujeres F. Folicular: 0.15 a 1.40 ng/ml F. Ovulación: 0.8 a 3.00 ng/ml F. Lútea: 3.34 a 25.56 ng/ml Post menopausia: hasta 0.73 ng/ml',
+    },
+    {
+      position: 135,
+      header: false,
+      nombre:
+        'Prolactina (PRL) - Electroquimioluminiscencia In',
+      valor: '',
+      referencia:
+        'Valor de Referencia: Hombre adulto 2.6 a 18.1 ng/ml Mujer adulta 1.2 a 23.3 ng/ml Hasta 1 mes: 3.7 - 81.0 ng/ml 1 mes A 1 año: 0.3 - 29.0 ng/ml Hasta la pubertad: 2.3-13.0ng/ml',
+    },
+    {
+      position: 136,
+      header: false,
+      nombre: 'Testosterona total - Electroquimioluminiscencia In',
+      valor: '',
+      referencia:
+        'Valor de Referencia: Hombre adulto: 2.41 a 8.27 ng/ml Mujer adulta: 0.14 a 0.76 ng/ml',
+    },
+    {
+      position: 137,
+      header: false,
+      nombre: 'Testosterona Biodisponible - Metodo:Quimioluminiscencia - F',
+      valor: '',
+      referencia: 'Valor de Referencia: Mujer adultas: 5 a 19 ng/dl Hombre adulto: 120 a 480 ng/dl',
+    },
+    {
+      position: 138,
+      header: false,
+      nombre: 'Gliadina Anticuerpos Ig A - Enzimoinmunoensayo Instrumen',
+      valor: '',
+      referencia:
+        'Valor de Referencia: Negativo < 12 IU/ml',
+    },
+    {
+      position: 139,
+      header: false,
+      nombre:
+        'Gliadina, Ac. Ig G Anti- Peptido Deaminado - Enzimoinmunoensayo',
+      valor: '',
+      referencia:
+        'VR: Hasta 10 UI/ml',
+    },
+    {
+      position: 140,
+      header: false,
+      nombre:
+        'Transglutaminasa Anti. Anticuerpos (IgA) - Método:Quimioluminiscencia I',
+      valor: '',
+      referencia: 'Vr: Menor de 8: Negativo Mayor o igual de 8: Positivo',
+    },
+    {
+      position: 141,
+      header: false,
+      nombre:
+        'Inmunoglobulina A (Ig.A) - Inmunoturbidimetría Instrumen',
+      valor: '',
+      referencia: 'VR: Adultos: 70 a 400 mg/dL 0-1 año 0.00 a 83 mg/dL 1-3 años 20 a 100 mg/Dl 4-6 años 27 a 195 mg/Dl 7-9 años 34 a 305 mg/Dl 10-11 años 53 a 204 mg/Dl 12-13 años 58 a 358 mg/Dl 14-15 años 47 a 249 mg/Dl',
+    },
+    {
+      position: 142,
+      header: false,
+      nombre: 'PSA - Antigeno Prostatico Especifico - Electroquimioluminiscencia In',
+      valor: '',
+      referencia: 'Valor de Referencia: hasta 4.00 ng/ml',
+    },
+    {
+      position: 143,
+      header: false,
+      nombre: 'Microalbuminuria - Inmunoturbidimetria',
+      valor: '',
+      referencia: 'Normal <30 mg/24hs Microalbuminuria 30-299 mg/24hs Albuminuria >300 mg/24hs',
+    },
+    {
+      position: 146,
+      header: false,
+      nombre:
+        '17 - Hidroxiprogesterona - RIA - RADIOINMUNOANALISIS',
+      valor: '',
+      referencia:
+        'Valor de Referencia: Hombre adulto 0.4 a 3.3 ng/ml Mujeres.fase folicular: 0.4 a 2.0 ng/ml Mujeres fase lútea: 0.4 a 4.0 ng/ml Mujeres postmenopausia: 0.1 a 0.6 ng/ml Niños hasta 12 meses: hasta 17.6 ng/ml prepuberes: Hasta 1.2 ng/ml',
+    },
+    {
+      position: 147,
+      header: false,
+      nombre: 'Cortisol Plasmatico, Matutino - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero',
+      valor: '',
+      referencia: 'Valor de Referencia: Matutino (8 a 10 hs) 4.3 a 22.4 ug/dl',
+    },
+    {
+      position: 150,
+      header: false,
+      nombre:
+        'Ferritina - Inmunoturbidimetrica Instrumento: Cobas C-311 - Roche Diagnostics Material: Suero',
+      valor: '',
+      referencia: 'Valor de Referencia: Hombre adulto: 20 a 320 ng/ml Mujer adulta: 10 a 280 ng/ml Recién nacidos: 25 a 200 ng/mL 1 mes de edad: 200 a 600 ng/mL 2-5 meses de edad: 50 a 200 ng/mL 6 meses – 15 años de edad: 7 a 142 ng/mL',
+    },
+    {
+      position: 151,
+      header: false,
+      nombre:
+        'Saturación de la Transferrina - Inmunoturbidimetría Instrumento: Aeroset-Abbott Material: Suero',
+      valor: '',
+      referencia: '',
+    },
+    {
+      position: 152,
+      header: false,
+      nombre: 'Capacidad total de fijación (TIBC)',
+      valor: '',
+      referencia: 'VR: 250 a 425 ug/dl',
+    },
+    {
+      position: 153,
+      header: false,
+      nombre:
+        'Capacidad latente de fijación (UIBC)',
+      valor: '',
+      referencia: 'VR: Hombres: 140 a 330 ug/dl Mujeres: 140 a 346 ug/dl',
+    },
+    {
+      position: 154,
+      header: false,
+      nombre: 'Coeficiente de saturación (SAT)',
+      valor: '',
+      referencia:
+        'VR: Hombres: 20 a 50 % Mujeres: 15 a 50 %',
+    },
+    {
+      position: 155,
+      header: false,
+      nombre:
+        'Transferrina - Método: Inmunoturbidimetría Instrumento: Aeroset - Abbott Material: Suero',
+      valor: '',
+      referencia: 'VR: 2.00 a 3.60 g/l',
+    },
+    {
+      position: 156,
+      header: false,
+      nombre:
+        'ATPO - Tiroperoxidasa anticuerpos - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero',
+      valor: '',
+      referencia: 'Valor de Referencia: hasta 60 U/ml',
+    }
+  ];
 
   @ViewChild('pdf', { static: false }) pdf!: ElementRef;
 
@@ -964,6 +1141,8 @@ export class AppComponent implements OnInit {
   chequeados: any = [];
   campos: any = []
   tableY: number = 0;
+
+  seDibujoFooter = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -998,28 +1177,16 @@ export class AppComponent implements OnInit {
     this.chequeados.push([element.position, element.nombre, valor, element.referencia])
   }
 
-
-  exportPDF() {
-    console.log(this.pdf.nativeElement);
-    let doc = new jsPDF('p', 'px', 'a4');
-    doc.html(this.pdf.nativeElement, {
-      callback: (doc) => {
-        doc.save();
-      },
-      margin: 10,
-      autoPaging: "slice",
-      filename: "Protocolo CREO",
-      image: undefined,
-      html2canvas: undefined,
-      jsPDF: undefined,
-      x: undefined,
-      y: 10,
-      width: 400,
-      windowWidth: 1000,
-      fontFaces: undefined,
-    }
-    )
-  }
+drawTable(doc:any,arreglo:any){
+  autoTable(doc, {
+    body: arreglo.map((el: any) => [el[1], el[2], el[3]]),
+    columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
+    headStyles:{fillColor:'#39968b',textColor:'white'},
+    pageBreak: 'auto',
+    startY: this.tableY + 35,
+    didDrawPage: (data) => this.getTableInfo(data)
+  })
+}
 
   range(concepto: string): boolean {
     const posisionesOrdenadas = this.chequeados.sort().map((el: any) => el[0]);
@@ -1049,6 +1216,9 @@ export class AppComponent implements OnInit {
       case 'sueltos2': return this.sueltos2.map(el => el.position).some(function (element) {
         return posisionesOrdenadas.indexOf(element) !== -1
       });
+      case 'sueltos3': return this.sueltos3.map(el => el.position).some(function (element) {
+        return posisionesOrdenadas.indexOf(element) !== -1
+      });
       case 'clearence': return this.clearence.map(el => el.position).some(function (element) {
         return posisionesOrdenadas.indexOf(element) !== -1
       });
@@ -1058,174 +1228,153 @@ export class AppComponent implements OnInit {
     return false;
   }
 
-
   getTableInfo(table: any) {
+    var pageSize = table.doc.internal.pageSize;
+    var pageHeight = pageSize.height
+        ? pageSize.height
+        : pageSize.getHeight();
+    console.log("table",pageHeight);
     this.tableY = table.cursor.y
+  }
+
+  drawHeader(doc:any){
+    const {nombre_apellido,nombre_medico,obra_social,fecha} = this.formularioGeneral.getRawValue();
+     autoTable(doc, {
+      head: [[`Paciente: ${nombre_apellido}`, 'Documento: DU - 24780788']],
+      body: [
+        [`Fecha/Nro. Entrada: ${fecha}`, `Médico: ${nombre_medico}`],
+        ['Servicio: 1-CENTRAL ', `Obs: ${obra_social}`],
+      ],
+      tableWidth:550,
+      tableLineWidth:1,
+      columnStyles: {0:{cellWidth:178.8,textColor:'black'},1:{textColor:'black'}},
+      headStyles:{fillColor:'#ffffff',textColor:'black'},
+      startY: 60,
+      margin:{right:0,left:0},
+      didDrawPage:(data) => {
+        this.getTableInfo(data)
+      }
+    })
+      // Footer
+      // var str = "Hoja " + doc.internal.getNumberOfPages();
+      // doc.setFontSize(10);
+      // // jsPDF 1.4+ uses getWidth, <1.4 uses .width
+      // var pageSize = doc.internal.pageSize;
+      // var pageHeight = pageSize.height
+      //   ? pageSize.height
+      //   : pageSize.getHeight();
+      // if(!this.seDibujoFooter)
+      // doc.text(str, 400, pageHeight - 10);
   }
 
 
   async generarPDF() {
+    let img = new Image()
+    img.src = "../assets/creo.jpeg";
     let doc = new jsPDF('p', 'px', 'a4');
-    await doc.html(this.pdf.nativeElement, {
-      callback: (docu) => {
-        this.tableY = 210;
-        doc = docu;
-      },
-      margin: 10,
-      autoPaging: "slice",
-      filename: "Protocolo CREO",
-      image: undefined,
-      html2canvas: undefined,
-      jsPDF: undefined,
-      x: undefined,
-      y: 10,
-      width: 400,
-      windowWidth: 1000,
-      fontFaces: undefined,
-    }
-    )
+    doc.addImage(img,'JPEG',0,0,200,60)
+    this.drawHeader(doc)
+    // await doc.html(this.pdf.nativeElement, 
+    //   {
+    //   callback: (docu) => {
+    //     this.tableY = 170;
+    //     doc = docu;
+    //   },
+    //   margin: 10,
+    //   autoPaging: "slice",
+    //   filename: "Protocolo CREO",
+    //   image: undefined,
+    //   html2canvas: undefined,
+    //   jsPDF: undefined,
+    //   x: 15,
+    //   y: 10,
+    //   width: 400,
+    //   windowWidth: 1000,
+    //   fontFaces: undefined,
+    // }
+    // )
 
     if (this.cargaHemograma) {
       const hemo = this.hemograma.map(e => [e.nombre, e.valor, e.referencia]);
-      doc.text("HEMOGRAMA COMPLETO", 30, this.tableY + 25, { align: 'left' })
+      doc.setFont("helvetica", "bold");
+      doc.text("HEMOGRAMA COMPLETO ", 30, this.tableY + 25, { align: 'left' })
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12)
+      doc.text("- Método: Citometría de Flujo Laser Modelo: SYSMEX XS-1000", 185, this.tableY + 24, { align: 'left' })
       autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
         body: hemo,
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
+        showFoot:'everyPage',
+        columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
+        didDrawPage:(data) => {
+          this.getTableInfo(data)
+        }
       })
     }
     if (this.cargaCoagruorama) {
       const coa = this.coagulograma.map(e => [e.nombre, e.valor, e.referencia]);
       doc.text("COAGRUORAMA BÁSICO", 30, this.tableY + 25, { align: 'left' })
       autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
         body: coa,
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
+        columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         margin: { top: 40 },
         startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
+        didDrawPage: (data) => {
+          this.getTableInfo(data)
+        }
       })
     }
 
     if (this.range('hemoglobina')) {
       const hemoglobina = this.chequeados.filter((el: any) => { return this.hemoglobina.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: hemoglobina.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,hemoglobina)
     }
     if (this.range('ionograma')) {
       doc.text("IONOGRAMA SÉRICO", 30, this.tableY + 25, { align: 'left' })
       const ionograma = this.chequeados.filter((el: any) => { return this.ionograma.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: ionograma.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,ionograma)
     }
     if (this.range('hepatograma')) {
       doc.text("HEPATOGRAMA", 30, this.tableY + 25, { align: 'left' })
       const hepatograma = this.chequeados.filter((el: any) => { return this.hepatograma.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: hepatograma.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,hepatograma)
     }
     if (this.range('lipido')) {
       doc.text("PERFIL LIPIDO", 30, this.tableY + 25, { align: 'left' })
       const perfilLipido = this.chequeados.filter((el: any) => { return this.perfilLipido.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: perfilLipido.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,perfilLipido)
     }
     if (this.range('riesgo')) {
       doc.text("ÍNDICE DE RIESGO ATEROGENICO", 30, this.tableY + 25, { align: 'left' })
       const indiceAterogenico = this.chequeados.filter((el: any) => { return this.indiceAterogenico.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: indiceAterogenico.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,indiceAterogenico)
     }
     if (this.range('sueltos2')) {
       const sueltos2 = this.chequeados.filter((el: any) => { return this.sueltos2.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: sueltos2.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,sueltos2)
     }
     if (this.range('sueltos1')) {
       const sueltos1 = this.chequeados.filter((el: any) => { return this.sueltos1.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: sueltos1.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,sueltos1)
+    }
+    if (this.range('sueltos3')) {
+      const sueltos3 = this.chequeados.filter((el: any) => { return this.sueltos3.map(el => el.position).indexOf(el[0]) !== -1 });
+      this.drawTable(doc,sueltos3)
     }
     if (this.range('clearence')) {
       doc.text("CLEARENCE DE CREATININA", 30, this.tableY + 25, { align: 'left' })
       const clearence = this.chequeados.filter((el: any) => { return this.clearence.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: clearence.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,clearence)
     }
     if (this.range('sedimento')) {
       doc.text("SEDIMENTO URINARIO", 30, this.tableY + 25, { align: 'left' })
       const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
-      autoTable(doc, {
-        head: [['Nombre', 'Valor', 'Referencia']],
-        body: sedimentoUrinario.map((el: any) => [el[1], el[2], el[3]]),
-        columnStyles: {0:{cellWidth:128.8},1:{cellWidth:78.8,halign:'justify'},2:{cellWidth:178.8}},
-        headStyles:{fillColor:'#39968b',textColor:'white'},
-        pageBreak: 'auto',
-        startY: this.tableY + 35,
-        didDrawPage: (data) => this.getTableInfo(data)
-      })
+      this.drawTable(doc,sedimentoUrinario)
     }
-
+    
+    // this.drawHeaderFooter(doc)
     doc.save('informe-laboratorio.pdf')
   }
 
