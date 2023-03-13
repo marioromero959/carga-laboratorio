@@ -1141,6 +1141,7 @@ export class AppComponent implements OnInit {
   chequeados: any = [];
   campos: any = []
   tableY: number = 0;
+  numberOfPages:number[] = [];
 
   seDibujoFooter = false;
 
@@ -1178,13 +1179,28 @@ export class AppComponent implements OnInit {
   }
 
 drawTable(doc:any,arreglo:any){
+
+
   autoTable(doc, {
     body: arreglo.map((el: any) => [el[1], el[2], el[3]]),
     columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
     headStyles:{fillColor:'#39968b',textColor:'white'},
     pageBreak: 'auto',
+    rowPageBreak:"avoid",
     startY: this.tableY + 35,
-    didDrawPage: (data) => this.getTableInfo(data)
+    margin:{top:60},
+    didDrawPage: (data) => {
+      //voy agregando la cantidad de paginas
+      const actualNumber = data.doc.internal.getCurrentPageInfo().pageNumber;
+      
+      if(!this.numberOfPages.includes(actualNumber)){
+        this.numberOfPages.push(actualNumber)
+        if(actualNumber > 2){
+        this.drawHeader(doc,false,actualNumber - 1);
+      }
+      } 
+      this.getTableInfo(data)
+    }
   })
 }
 
@@ -1229,98 +1245,88 @@ drawTable(doc:any,arreglo:any){
   }
 
   getTableInfo(table: any) {
-    var pageSize = table.doc.internal.pageSize;
-    var pageHeight = pageSize.height
-        ? pageSize.height
-        : pageSize.getHeight();
-    console.log("table",pageHeight);
-    this.tableY = table.cursor.y
+    this.tableY = table.cursor.y;
   }
 
-  drawHeader(doc:any){
+  drawHeader(doc:jsPDF,first:boolean,pageNumber:number){
+    const y = (first) ? this.tableY + 30 : 20;
+    // const y = (first) ? this.tableY + 30 : doc.internal.pageSize.getHeight() * (pageNumber) + 20;
     const {nombre_apellido,nombre_medico,obra_social,fecha} = this.formularioGeneral.getRawValue();
-     autoTable(doc, {
-      head: [[`Paciente: ${nombre_apellido}`, 'Documento: DU - 24780788']],
-      body: [
-        [`Fecha/Nro. Entrada: ${fecha}`, `Médico: ${nombre_medico}`],
-        ['Servicio: 1-CENTRAL ', `Obs: ${obra_social}`],
-      ],
-      tableWidth:550,
-      tableLineWidth:1,
-      columnStyles: {0:{cellWidth:178.8,textColor:'black'},1:{textColor:'black'}},
-      headStyles:{fillColor:'#ffffff',textColor:'black'},
-      startY: 60,
-      margin:{right:0,left:0},
-      didDrawPage:(data) => {
-        this.getTableInfo(data)
-      }
-    })
-      // Footer
-      // var str = "Hoja " + doc.internal.getNumberOfPages();
-      // doc.setFontSize(10);
-      // // jsPDF 1.4+ uses getWidth, <1.4 uses .width
-      // var pageSize = doc.internal.pageSize;
-      // var pageHeight = pageSize.height
-      //   ? pageSize.height
-      //   : pageSize.getHeight();
-      // if(!this.seDibujoFooter)
-      // doc.text(str, 400, pageHeight - 10);
+    // autoTable(doc, {
+    //   head: [[`Paciente: ${nombre_apellido}`, 'Documento: DU - 24780788']],
+    //   body: [
+    //     [`Fecha/Nro. Entrada: ${fecha}`, `Médico: ${nombre_medico}`],
+    //     ['Servicio: 1-CENTRAL ', `Obs: ${obra_social}`],
+    //   ],
+    //   tableWidth:550,
+    //   tableLineWidth:1,
+    //   columnStyles: {0:{cellWidth:178.8,textColor:'black'},1:{textColor:'black'}},
+    //   headStyles:{fillColor:'#ffffff',textColor:'black'},
+    //   // startY:(first) ? this.tableY : this.tableY - 75,
+    //   startY:(first) ? this.tableY : y,
+    //   pageBreak:"auto",
+    //   margin:{right:0,left:0,top:0,bottom:0},
+    //   didDrawPage:(data) => {
+    //     // this.getTableInfo(data)
+    //   }
+    // })
+    //   head: [[`Paciente: ${nombre_apellido}`, 'Documento: DU - 24780788']],
+    console.log("dibujo en la pagina:", pageNumber,y);
+    
+    doc.setFontSize(12)
+    doc.text(`Paciente: ${nombre_apellido} - Documento: DU - 24780788`,130,y)
+    doc.text(`Fecha/Nro. Entrada: ${fecha} - Médico: ${nombre_medico}`,130, y + 10)
   }
 
 
   async generarPDF() {
+    this.tableY = 60;
+    this.numberOfPages.splice(0,this.numberOfPages.length)
     let img = new Image()
     img.src = "../assets/creo.jpeg";
     let doc = new jsPDF('p', 'px', 'a4');
     doc.addImage(img,'JPEG',0,0,200,60)
-    this.drawHeader(doc)
-    // await doc.html(this.pdf.nativeElement, 
-    //   {
-    //   callback: (docu) => {
-    //     this.tableY = 170;
-    //     doc = docu;
-    //   },
-    //   margin: 10,
-    //   autoPaging: "slice",
-    //   filename: "Protocolo CREO",
-    //   image: undefined,
-    //   html2canvas: undefined,
-    //   jsPDF: undefined,
-    //   x: 15,
-    //   y: 10,
-    //   width: 400,
-    //   windowWidth: 1000,
-    //   fontFaces: undefined,
-    // }
-    // )
-
+    //Dibujo el primer header
+    this.drawHeader(doc,true,1)
     if (this.cargaHemograma) {
       const hemo = this.hemograma.map(e => [e.nombre, e.valor, e.referencia]);
       doc.setFont("helvetica", "bold");
-      doc.text("HEMOGRAMA COMPLETO ", 30, this.tableY + 25, { align: 'left' })
-      doc.setFont("helvetica", "normal");
       doc.setFontSize(12)
-      doc.text("- Método: Citometría de Flujo Laser Modelo: SYSMEX XS-1000", 185, this.tableY + 24, { align: 'left' })
+      doc.text("HEMOGRAMA COMPLETO ", 30, this.tableY + 75, { align: 'left' })
+      doc.setFont("helvetica", "normal");
+      doc.text("- Método: Citometría de Flujo Laser Modelo: SYSMEX XS-1000", 155, this.tableY + 75, { align: 'left' })
       autoTable(doc, {
         body: hemo,
-        showFoot:'everyPage',
         columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
-        startY: this.tableY + 35,
+        startY: this.tableY + 85,
+        rowPageBreak:"auto",
+        //margen para la tabla partida 
+        margin:{top:60},
         didDrawPage:(data) => {
           this.getTableInfo(data)
+          if(data.pageNumber ==  2){
+            this.drawHeader(doc,false,1)
+          }
         }
       })
     }
     if (this.cargaCoagruorama) {
+      const spacer = (this.cargaHemograma) ? 35 : 75; 
       const coa = this.coagulograma.map(e => [e.nombre, e.valor, e.referencia]);
-      doc.text("COAGRUORAMA BÁSICO", 30, this.tableY + 25, { align: 'left' })
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12)
+      doc.text("COAGRUORAMA BÁSICO", 30, this.tableY + spacer, { align: 'left' })
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12)
+      doc.text("- Coagulométrico turbidimétrico Automatizado Instrumento: ST4 / ST-ART", 145, this.tableY + spacer, { align: 'left' })
       autoTable(doc, {
         body: coa,
         columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
-        margin: { top: 40 },
-        startY: this.tableY + 35,
+        pageBreak:"auto",
+        margin:{top:60},
+        startY: this.tableY + spacer + 10,
         didDrawPage: (data) => {
           this.getTableInfo(data)
         }
@@ -1374,7 +1380,6 @@ drawTable(doc:any,arreglo:any){
       this.drawTable(doc,sedimentoUrinario)
     }
     
-    // this.drawHeaderFooter(doc)
     doc.save('informe-laboratorio.pdf')
   }
 
