@@ -1,19 +1,29 @@
-<div class="btn-export">
-  <button mat-raised-button color="primary" (click)="generarPDF()">
-    Exportar a pdf
-  </button>
-</div>
+
 <div>
   <div class="container">
     <div>
+      
       <form [formGroup]="formularioGeneral">
         <div #pdf>
           <img src="../assets/creo.jpeg" alt=""/>
+          <!-- <div class="btn-export"> -->
+            <button mat-raised-button color="primary" (click)="generarPDF()">
+              Exportar a pdf
+            </button>
+          <!-- </div> -->
           <div class="inicio">
+            <mat-card class="card_principal">
+              LABORATORIO DE ANALISIS CLINICOS BIOQUIMICA : DEL RICCIO LAURA E.MP
+              180
+            </mat-card>
           <mat-card class="card_principal">
             <mat-form-field>
               <label>Nombre y Apellido</label>
               <input matInput formControlName="nombre_apellido" />
+            </mat-form-field>
+            <mat-form-field>
+              <label>DNI</label>
+              <input matInput formControlName="dni" />
             </mat-form-field>
             <mat-form-field>
               <label>Obra Social</label>
@@ -32,10 +42,6 @@
               <label>Médico Solicitante</label>
               <input matInput formControlName="nombre_medico" />
             </mat-form-field>
-          </mat-card>
-          <mat-card class="card_principal">
-            LABORATORIO DE ANALISIS CLINICOS BIOQUIMICA : DEL RICCIO LAURA E.MP
-            180
           </mat-card>
         </div>
       </div>

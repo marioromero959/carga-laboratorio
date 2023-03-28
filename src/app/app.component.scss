@@ -1,28 +1,24 @@
-.btn-export{
-    width: 100%;
-    text-align: right;
-    button{
-        margin: 10px;
-    }
-}
 .container{
     width: 100%;
     img{
         width: 30%;
     }
+    button{
+        margin: 0 25em;
+    }
 }
 
 .inicio{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    // flex-direction: row;
     mat-card{
-        width: 50%;
+        width: 100%;
     }
 }
 .card_principal{
-    padding: 30px;
+    padding: 10px;
     display: flex;
-    flex-direction: column;
     mat-form-field {
         label{
         color: #39968b;
