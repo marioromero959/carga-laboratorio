@@ -1279,7 +1279,7 @@ drawTable(doc:any,arreglo:any){
 
 
   async generarPDF() {
-    // if(!this.formularioGeneral.valid) return;
+    if(!this.formularioGeneral.valid) return;
     this.tableY = 60;
     this.numberOfPages.splice(0,this.numberOfPages.length)
     let img = new Image()
