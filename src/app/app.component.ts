@@ -282,7 +282,7 @@ export class AppComponent implements OnInit {
     {
       position: 36,
       header: false,
-      nombre: 'Fosfatemia - Colorimetrico',
+      nombre: 'FOSFATEMIA - Colorimetrico',
       valor: '',
       referencia: 'vr: Adultos: 2.50 a 5.60 mg% Niños: 4.00 a 7.00 mg%',
     },
@@ -1163,26 +1163,28 @@ export class AppComponent implements OnInit {
   }
 
   cambioValor(element: any, valor: any, isHemograma?: boolean, isCoagruorama?: boolean) {
-    if (isHemograma) {
-      element.valor = valor;
-    }
-    else if (isCoagruorama) {
-      element.valor = valor;
-    }
+    // if (isHemograma) {
+    //   element.valor = valor;
+    // }
+    // else if (isCoagruorama) {
+    //   element.valor = valor;
+    // }
+    element.valor = valor;
 
-    let repetido = this.chequeados.find((el: any) => el[0] == element.position)
+    let repetido = this.chequeados.find((el: any) => el[0] == element.position);
+    
     if (repetido) {
       let index = this.chequeados.findIndex((el: any) => el[0] == element.position)
       this.chequeados.splice(index, 1)
+      this.chequeados.push([element.position, element.nombre, valor, element.referencia])
     }
-    this.chequeados.push([element.position, element.nombre, valor, element.referencia])
   }
 
 drawTable(doc:any,arreglo:any){
   const spacer = (this.cargaHemograma || this.cargaCoagruorama) ? 35 : 65;
   autoTable(doc, {
     body: arreglo.map((el: any) => [el[1], el[2], el[3]]),
-    columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
+    columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'}},
     headStyles:{fillColor:'#39968b',textColor:'white'},
     pageBreak: 'auto',
     rowPageBreak:"avoid",
@@ -1270,13 +1272,14 @@ drawTable(doc:any,arreglo:any){
     doc.text(`Obs: ${obra_social}`,350, y + 10)
     doc.text(`_____________________________________________________________________________________`,10,y+15)
 
-    doc.text(`Pagina ${doc.getCurrentPageInfo().pageNumber}`,350, 620)
+    doc.text(`Página ${doc.getCurrentPageInfo().pageNumber}`,350, 620)
+    console.log("doc",doc);
     
   }
 
 
   async generarPDF() {
-    if(!this.formularioGeneral.valid) return;
+    // if(!this.formularioGeneral.valid) return;
     this.tableY = 60;
     this.numberOfPages.splice(0,this.numberOfPages.length)
     let img = new Image()
@@ -1294,7 +1297,7 @@ drawTable(doc:any,arreglo:any){
       doc.text("- Método: Citometría de Flujo Laser Modelo: SYSMEX XS-1000", 155, this.tableY + 65, { align: 'left' })
       autoTable(doc, {
         body: hemo,
-        columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
+        columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         startY: this.tableY + 75,
         rowPageBreak:"auto",
@@ -1319,7 +1322,7 @@ drawTable(doc:any,arreglo:any){
       doc.text("- Coagulométrico turbidimétrico Automatizado Instrumento: ST4 / ST-ART", 145, spacer, { align: 'left' })
       autoTable(doc, {
         body: coa,
-        columnStyles: {0:{cellWidth:128.8,textColor:'black'},1:{cellWidth:78.8,halign:'justify',textColor:'black'},2:{cellWidth:178.8,textColor:'#727377'}},
+        columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak:"auto",
         margin:{top:240},
@@ -1353,7 +1356,7 @@ drawTable(doc:any,arreglo:any){
     }
     if (this.range('lipido')) {
       doc.setFont("helvetica", "bold");
-      doc.text("PERFIL LIPIDO", 30, this.tableY + spacer2, { align: 'left' })
+      doc.text("PERFIL LIPIDICO", 30, this.tableY + spacer2, { align: 'left' })
       const perfilLipido = this.chequeados.filter((el: any) => { return this.perfilLipido.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,perfilLipido)
     }
@@ -1395,6 +1398,8 @@ drawTable(doc:any,arreglo:any){
   }
 
   checkItem(target: any, item: any, isHemograma: boolean, isCoaglourama: boolean) {
+    console.log("target",target,"item",item);
+    
     if (target.checked) {
       if (isHemograma) {
         this.cargaHemograma = true;
