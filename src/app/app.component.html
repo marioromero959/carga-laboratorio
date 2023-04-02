@@ -57,28 +57,27 @@
             <ng-container matColumnDef="nombre">
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
-                <p [ngClass]="{ header: element.header }">
-                  {{ element.nombre }}
-                </p>
+                <p>{{ element.nombre }}</p>
+                <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="element.position < 16">
+                <mat-form-field *ngIf="element.position < 16 && ( element.position != 0 && element.position != 10 && element.position != 21 )">
                   <input
                     type="text"
                     matInput
                     [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event,true)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
-                <mat-form-field *ngIf="element.position > 16">
+                <mat-form-field *ngIf="element.position > 16 && (element.position != 0 && element.position != 10 && element.position != 21)">
                   <input
                     type="text"
                     matInput
                     [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event,true)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -102,20 +101,20 @@
             <ng-container matColumnDef="nombre">
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
-                <p [ngClass]="{ header: element.header }">
-                  {{ element.nombre }}
-                </p>
+                <p>{{ element.nombre }}</p>
+                <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
                     [formControl]="control"
-                    (ngModelChange)="cambioValor(element, $event,false,true)"
+                    (ngModelChange)="cambioValor(element, $event)"
                   />
                 </mat-form-field>
               </td>
@@ -137,14 +136,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
+                    <p>{{ element.nombre }}</p>
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <!-- <mat-form-field *ngIf="!element.header"> -->
+                  <mat-form-field>
                   <input
                     type="text"
                     matInput
@@ -174,14 +175,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <!-- <mat-form-field *ngIf="!element.header"> -->
+                  <mat-form-field>
                   <input
                     type="text"
                     matInput
@@ -210,14 +213,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
@@ -246,17 +251,17 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                    <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">
-                        {{ element.nombre }}
-                    </p>
+                    <input *ngIf="element.position !== 114.9" type="checkbox" (change)="checkItem($event.target,element,false,false)">
+                    <p>{{ element.nombre }}</p>
+                      <!-- <p [ngClass]="{ header: element.header }"> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field *ngIf="element.position !== 114.9">
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
@@ -289,14 +294,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
@@ -328,14 +335,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
@@ -364,14 +373,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
@@ -400,14 +411,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput
@@ -439,14 +452,16 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                     <input type="checkbox" (change)="checkItem($event.target,element,false,false)">
-                    <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p>
+                    <p>{{ element.nombre }}</p>
+                    <!-- <p [ngClass]="{ header: element.header }">{{ element.nombre }}</p> -->
                 </div>
               </td>
             </ng-container>
             <ng-container matColumnDef="valor">
               <th mat-header-cell *matHeaderCellDef>Valor</th>
               <td mat-cell *matCellDef="let element">
-                <mat-form-field *ngIf="!element.header">
+                <mat-form-field>
+                  <!-- <mat-form-field *ngIf="!element.header"> -->
                   <input
                     type="text"
                     matInput

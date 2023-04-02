@@ -26,6 +26,13 @@ export class AppComponent implements OnInit {
 
   hemograma: Table[] = [
     {
+      position: 0,
+      header: true,
+      nombre: 'HEMOGRAMA COMPLETO - Citometría de Flujo Laser Modelo: SYSMEX XS-1000',
+      valor: '',
+      referencia: '',
+    },
+    {
       position: 1,
       header: false,
       nombre: 'Globulos Rojos',
@@ -90,7 +97,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 10,
-      header: true,
+      header: false,
       nombre: 'Formula Leucocitaria',
       valor: '',
       referencia: '',
@@ -132,7 +139,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 16,
-      header: true,
+      header: false,
       nombre: 'Morfología Eritrocitaria:',
       valor: '',
       referencia: '',
@@ -167,7 +174,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 21,
-      header: true,
+      header: false,
       nombre: 'Alteraciones Leucocitarias:',
       valor: '',
       referencia: '',
@@ -231,8 +238,8 @@ export class AppComponent implements OnInit {
   ];
   hemoglobina: Table[] = [
     {
-      position: 30,
-      header: false,
+      position: 31,
+      header: true,
       nombre:
         'HEMOGLOBINA GLICOSILADA Inmunoturbidimetria Teconologia: COBAS C111- ROCHE DIAGNOSTICS Material examinado: sangre entera',
       valor: '',
@@ -240,7 +247,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 31,
-      header: false,
+      header: true,
       nombre:
         'GLUCEMIA Método: Enzimático de referencia con hexoquinasa Tecnologia: COBAS C311- ROCHE DIAGNOSTICS',
       valor: '',
@@ -249,7 +256,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 32,
-      header: false,
+      header: true,
       nombre:
         'UREMIA Método: Cinético con Ureasa y Glutamato Deshidrogenasa Tecnologia: COBAS C311- ROCHE DIAGNOSTICS',
       valor: '',
@@ -281,21 +288,21 @@ export class AppComponent implements OnInit {
     },
     {
       position: 36,
-      header: false,
+      header: true,
       nombre: 'FOSFATEMIA - Colorimetrico',
       valor: '',
       referencia: 'vr: Adultos: 2.50 a 5.60 mg% Niños: 4.00 a 7.00 mg%',
     },
     {
       position: 37,
-      header: false,
+      header: true,
       nombre: 'Magnesemia - Colorimetrico',
       valor: '',
       referencia: 'vr: 1.90 a 2.50 mg/dl',
     },
     {
       position: 38,
-      header: false,
+      header: true,
       nombre:
         'Amilasemia - Enzimatico Tecnologia: COBAS C311- ROCHE DIAGNOSTICS',
       valor: '',
@@ -305,7 +312,7 @@ export class AppComponent implements OnInit {
   coagulograma: Table[] = [
     {
       position: 39,
-      header: true,
+      header: false,
       nombre: 'Tiempo de Protrombina',
       valor: '',
       referencia: '',
@@ -537,6 +544,14 @@ export class AppComponent implements OnInit {
   ]
   perfilLipido: Table[] = [
     {
+      position: 114.9,//agregue el titulo
+      header: true,
+      nombre:
+        'PERFIL LIPIDICO',
+      valor: 'Método Enzimatico : Teconologia: COBAS C311- ROCHE DIAGNOSTICS',
+      referencia: '',
+    },
+    {
       position: 115,
       header: false,
       nombre:
@@ -654,7 +669,7 @@ export class AppComponent implements OnInit {
   sueltos1: Table[] = [
     {
       position: 63,
-      header: false,
+      header: true,
       nombre:
         'Insulina Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero',
       valor: '',
@@ -663,7 +678,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 64,
-      header: false,
+      header: true,
       nombre:
         'TSHu - Tirotropina (ultrasensible)Electroquimioluminiscencia Instrumento : Cobas E -411',
       valor: '',
@@ -672,7 +687,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 65,
-      header: false,
+      header: true,
       nombre:
         'T3 Total - Triiodotironina Total Electroquimioluminiscencia Instrumento : Cobas E -411',
       valor: '',
@@ -681,7 +696,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 66,
-      header: false,
+      header: true,
       nombre:
         'T4L - Tiroxina Libre Electroquimioluminiscencia Instrumento: Cobas E 411 Roche Diagnostics Material: suero ',
       valor: '',
@@ -698,7 +713,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 68,
-      header: false,
+      header: true,
       nombre:
         'Vitamina D2 YD3 (25-Hidroxi Vitamina D2 YD3)  Electroquimioluminiscencia Isntrumento Cobas E-411',
       valor: '',
@@ -765,14 +780,14 @@ export class AppComponent implements OnInit {
     },
     {
       position: 83,
-      header: false,
+      header: true,
       nombre: 'Apoliproteína Apo- B - Inmunoturbidimetría',
       valor: '',
       referencia: 'V.R.: Hombres: 66 a 133 mg/dl Mujeres: 60 a 117 mg/dl',
     },
     {
       position: 84,
-      header: false,
+      header: true,
       nombre:
         'Proteina C Reactivo Ultrasensible - Método: Turbidimetría Las instituciones CDC y AHA recomiendan los siguientes valores en la evaluación de riesgo de cardiopatías coronarias',
       valor: '',
@@ -781,7 +796,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 85,
-      header: false,
+      header: true,
       nombre: 'Indice de HOMA ',
       valor: '',
       referencia:
@@ -789,14 +804,14 @@ export class AppComponent implements OnInit {
     },
     {
       position: 86,
-      header: false,
+      header: true,
       nombre: 'Acido Folico - Quimioluminscencia',
       valor: '',
       referencia: 'Valor de Referencia: Normal: mayor a 5.3 ng/ml',
     },
     {
       position: 87,
-      header: false,
+      header: true,
       nombre: 'Vitamina A (Retinol) - Cromatografía líquida',
       valor: '',
       referencia:
@@ -804,7 +819,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 88,
-      header: false,
+      header: true,
       nombre:
         'Vitamina B6 (Piridoxina) - Cromatografía líquida de alta presión (HPLC)',
       valor: '',
@@ -813,7 +828,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 89,
-      header: false,
+      header: true,
       nombre:
         'Vitamina B12 - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero protegido de la luz',
       valor: '',
@@ -821,7 +836,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 90,
-      header: false,
+      header: true,
       nombre:
         'Vitamina C (Ac. Ascorbico) - Cromatografía líquida de alta presión (HPLC)',
       valor: '',
@@ -829,21 +844,21 @@ export class AppComponent implements OnInit {
     },
     {
       position: 91,
-      header: false,
+      header: true,
       nombre: 'Apolipoproteinas Apo-A1 - Inmunoturbidimetría',
       valor: '',
       referencia: 'V.R. Hombres: 104 a 202 mg/dl Mujeres: 108 a 225 mg/dl',
     },
     {
       position: 92,
-      header: false,
+      header: true,
       nombre: 'Lipoproteína a -Lp(a) - ITD',
       valor: '',
       referencia: 'Valor de Referencia: Hasta 30 mg/dl',
     },
     {
       position: 93,
-      header: false,
+      header: true,
       nombre: 'Aluminio serico - Absorción atómica',
       valor: '',
       referencia:
@@ -851,7 +866,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 94,
-      header: false,
+      header: true,
       nombre: 'Manganeso en suero - Absorción atómica',
       valor: '',
       referencia:
@@ -859,7 +874,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 95,
-      header: false,
+      header: true,
       nombre:
         'Selenio en Suero - Absorción atómica Mayo Clinic Laboratories. SES, (2020)',
       valor: '',
@@ -868,14 +883,14 @@ export class AppComponent implements OnInit {
     },
     {
       position: 96,
-      header: false,
+      header: true,
       nombre: 'Zinc Serico - Colorimétrico',
       valor: '',
       referencia: '0-11 años: 66-100 ug/dl Mayor de 11 años: 60',
     },
     {
       position: 97,
-      header: false,
+      header: true,
       nombre:
         'Dehidroepiandrosterona Sulfato (DHEA-S) - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero',
       valor: '',
@@ -884,7 +899,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 98,
-      header: false,
+      header: true,
       nombre: 'Testosterona Libre - Quimioluminiscencia. Fórmula de Vermeulen',
       valor: '',
       referencia:
@@ -999,7 +1014,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 136,
-      header: false,
+      header: true,
       nombre: 'Testosterona total - Electroquimioluminiscencia In',
       valor: '',
       referencia:
@@ -1070,7 +1085,7 @@ export class AppComponent implements OnInit {
     },
     {
       position: 147,
-      header: false,
+      header: true,
       nombre: 'Cortisol Plasmatico, Matutino - Electroquimioluminiscencia Instrumento: Cobas E-411 - Roche Diagnostics Material: Suero',
       valor: '',
       referencia: 'Valor de Referencia: Matutino (8 a 10 hs) 4.3 a 22.4 ug/dl',
@@ -1142,8 +1157,6 @@ export class AppComponent implements OnInit {
   tableY: number = 0;
   numberOfPages:number[] = [];
 
-  seDibujoFooter = false;
-
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -1162,34 +1175,35 @@ export class AppComponent implements OnInit {
     });
   }
 
-  cambioValor(element: any, valor: any, isHemograma?: boolean, isCoagruorama?: boolean) {
-    // if (isHemograma) {
-    //   element.valor = valor;
-    // }
-    // else if (isCoagruorama) {
-    //   element.valor = valor;
-    // }
+  cambioValor(element: any, valor: any) {
     element.valor = valor;
-
     let repetido = this.chequeados.find((el: any) => el[0] == element.position);
-    
     if (repetido) {
       let index = this.chequeados.findIndex((el: any) => el[0] == element.position)
       this.chequeados.splice(index, 1)
-      this.chequeados.push([element.position, element.nombre, valor, element.referencia])
+      this.chequeados.push([element.position, element.nombre, valor, element.referencia,element.header])
     }
   }
 
 drawTable(doc:any,arreglo:any){
   const spacer = (this.cargaHemograma || this.cargaCoagruorama) ? 35 : 65;
   autoTable(doc, {
-    body: arreglo.map((el: any) => [el[1], el[2], el[3]]),
+    body: arreglo.map((el: any) => [el[1], el[2], el[3],el[4]]),
+    columns:[{header: ''},{header:''},{header:''}],
     columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'}},
     headStyles:{fillColor:'#39968b',textColor:'white'},
     pageBreak: 'auto',
     rowPageBreak:"avoid",
     startY: this.tableY + spacer,
     margin:{top:40},
+    didParseCell:(data)=>{
+      const is:any = data.row.raw;
+      const [,,,bool] = is;
+      if(bool && data.column.index == 0){
+        data.cell.styles.fontStyle = 'bold'
+        // data.cell.styles.fontSize = 15
+      }
+    },
     didDrawPage: (data) => {
       //voy agregando la cantidad de paginas
       const actualNumber = data.doc.internal.getCurrentPageInfo().pageNumber;
@@ -1216,7 +1230,6 @@ drawTable(doc:any,arreglo:any){
 
   range(concepto: string): boolean {
     const posisionesOrdenadas = this.chequeados.sort().map((el: any) => el[0]);
-
     switch (concepto) {
       case 'hemoglobina': return this.hemoglobina.map(el => el.position).some(function (element) {
         return posisionesOrdenadas.indexOf(element) !== -1
@@ -1273,13 +1286,10 @@ drawTable(doc:any,arreglo:any){
     doc.text(`_____________________________________________________________________________________`,10,y+15)
 
     doc.text(`Página ${doc.getCurrentPageInfo().pageNumber}`,350, 620)
-    console.log("doc",doc);
-    
   }
 
-
   async generarPDF() {
-    if(!this.formularioGeneral.valid) return;
+    // if(!this.formularioGeneral.valid) return;
     this.tableY = 60;
     this.numberOfPages.splice(0,this.numberOfPages.length)
     let img = new Image()
@@ -1289,15 +1299,25 @@ drawTable(doc:any,arreglo:any){
     //Dibujo el primer header
     this.drawHeader(doc,true,1)
     if (this.cargaHemograma) {
-      const hemo = this.hemograma.map(e => [e.nombre, e.valor, e.referencia]);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(12)
-      doc.text("HEMOGRAMA COMPLETO ", 30, this.tableY + 65, { align: 'left' })
-      doc.setFont("helvetica", "normal");
-      doc.text("- Método: Citometría de Flujo Laser Modelo: SYSMEX XS-1000", 155, this.tableY + 65, { align: 'left' })
+      const hemo = this.hemograma.map(e => [e.nombre, e.valor, e.referencia,e.header]);
+      // doc.setFont("helvetica", "bold");
+      // doc.setFontSize(12)
+      // doc.text("HEMOGRAMA COMPLETO ", 30, this.tableY + 65, { align: 'left' })
+      // doc.setFont("helvetica", "normal");
+      // doc.text("- Método: Citometría de Flujo Laser Modelo: SYSMEX XS-1000", 155, this.tableY + 65, { align: 'left' })
+      
       autoTable(doc, {
         body: hemo,
-        columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'}},
+        columns:[{header: ''},{header:''},{header:''}],
+        columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'},3:{overflow:'linebreak'}},
+        didParseCell:(data)=>{
+          const is:any = data.row.raw;
+          const [,,,bool] = is;
+          if(bool && data.column.index == 0){
+            data.cell.styles.fontStyle = 'bold'
+            // data.cell.styles.fontSize = 15
+          }
+        },
         headStyles:{fillColor:'#39968b',textColor:'white'},
         startY: this.tableY + 75,
         rowPageBreak:"auto",
@@ -1313,20 +1333,29 @@ drawTable(doc:any,arreglo:any){
     }
     if (this.cargaCoagruorama) {
       const spacer = (this.cargaHemograma) ? 85 : 125;
-      const coa = this.coagulograma.map(e => [e.nombre, e.valor, e.referencia]);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(12)
-      doc.text("COAGRUORAMA BÁSICO", 30, spacer, { align: 'left' })
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(12)
-      doc.text("- Coagulométrico turbidimétrico Automatizado Instrumento: ST4 / ST-ART", 145, spacer, { align: 'left' })
+      const coa = this.coagulograma.map(e => [e.nombre, e.valor, e.referencia,e.header]);
+      // doc.setFont("helvetica", "bold");
+      // doc.setFontSize(12)
+      // doc.text("COAGRUORAMA BÁSICO", 30, spacer, { align: 'left' })
+      // doc.setFont("helvetica", "normal");
+      // doc.setFontSize(12)
+      // doc.text("- Coagulométrico turbidimétrico Automatizado Instrumento: ST4 / ST-ART", 145, spacer, { align: 'left' })
       autoTable(doc, {
         body: coa,
+        columns:[{header: ''},{header:''},{header:''}],
         columnStyles: {0:{cellWidth:168.8,textColor:'black'},1:{cellWidth:88.8,halign:'justify',textColor:'black'},2:{cellWidth:128.8,textColor:'#727377'}},
         headStyles:{fillColor:'#39968b',textColor:'white'},
         pageBreak:"auto",
         margin:{top:240},
         startY: this.tableY + spacer - 50,
+        didParseCell:(data)=>{
+          const is:any = data.row.raw;
+          const [,,,bool] = is;
+          if(bool && data.column.index == 0){
+            data.cell.styles.fontStyle = 'bold'
+            // data.cell.styles.fontSize = 15
+          }
+        },
         didDrawPage: (data) => {
           this.getTableInfo(data)
           if(data.pageNumber ==  2)
@@ -1334,62 +1363,46 @@ drawTable(doc:any,arreglo:any){
         }
       })
     }
-    //el spacer para las demas secciones
-      const spacer2 = (this.cargaHemograma || this.cargaCoagruorama) ? 25 : 55;
+
     if (this.range('hemoglobina')) {
-      doc.text("", 30, this.tableY + spacer2, { align: 'left' })
       const hemoglobina = this.chequeados.filter((el: any) => { return this.hemoglobina.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,hemoglobina)
     }
     if (this.range('ionograma')) {
-      doc.setFont("helvetica", "bold");
-      doc.text("IONOGRAMA SÉRICO", 30, this.tableY + spacer2, { align: 'left' })
       const ionograma = this.chequeados.filter((el: any) => { return this.ionograma.map(el => el.position).indexOf(el[0]) !== -1 });
-      console.log("iono",ionograma);
       this.drawTable(doc,ionograma)
     }
     if (this.range('hepatograma')) {
-      doc.setFont("helvetica", "bold");
-      doc.text("HEPATOGRAMA", 30, this.tableY + spacer2, { align: 'left' })
       const hepatograma = this.chequeados.filter((el: any) => { return this.hepatograma.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,hepatograma)
     }
     if (this.range('lipido')) {
-      doc.setFont("helvetica", "bold");
-      doc.text("PERFIL LIPIDICO", 30, this.tableY + spacer2, { align: 'left' })
       const perfilLipido = this.chequeados.filter((el: any) => { return this.perfilLipido.map(el => el.position).indexOf(el[0]) !== -1 });
+      console.log("perfilLipido",perfilLipido);
+      
       this.drawTable(doc,perfilLipido)
     }
     if (this.range('riesgo')) {
-      doc.setFont("helvetica", "bold");
-      doc.text("ÍNDICE DE RIESGO ATEROGENICO", 30, this.tableY + spacer2, { align: 'left' })
       const indiceAterogenico = this.chequeados.filter((el: any) => { return this.indiceAterogenico.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,indiceAterogenico)
     }
     if (this.range('sueltos2')) {
-      doc.text("", 30, this.tableY + spacer2, { align: 'left' })
       const sueltos2 = this.chequeados.filter((el: any) => { return this.sueltos2.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,sueltos2)
     }
     if (this.range('sueltos1')) {
-      doc.text("", 30, this.tableY + spacer2, { align: 'left' })
       const sueltos1 = this.chequeados.filter((el: any) => { return this.sueltos1.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,sueltos1)
     }
     if (this.range('sueltos3')) {
-      doc.text("", 30, this.tableY + spacer2, { align: 'left' })
       const sueltos3 = this.chequeados.filter((el: any) => { return this.sueltos3.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,sueltos3)
     }
     if (this.range('clearence')) {
-      doc.setFont("helvetica", "bold");
-      doc.text("CLEARENCE DE CREATININA", 30, this.tableY + spacer2, { align: 'left' })
       const clearence = this.chequeados.filter((el: any) => { return this.clearence.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,clearence)
     }
     if (this.range('sedimento')) {
-      doc.setFont("helvetica", "bold");
-      doc.text("SEDIMENTO URINARIO", 30, this.tableY + spacer2, { align: 'left' })
       const sedimentoUrinario = this.chequeados.filter((el: any) => { return this.sedimentoUrinario.map(el => el.position).indexOf(el[0]) !== -1 });
       this.drawTable(doc,sedimentoUrinario)
     }
@@ -1398,8 +1411,6 @@ drawTable(doc:any,arreglo:any){
   }
 
   checkItem(target: any, item: any, isHemograma: boolean, isCoaglourama: boolean) {
-    console.log("target",target,"item",item);
-    
     if (target.checked) {
       if (isHemograma) {
         this.cargaHemograma = true;
@@ -1410,7 +1421,13 @@ drawTable(doc:any,arreglo:any){
       else {
         let repetido = this.chequeados.find((el: any) => el.position == item.position)
         if (!repetido) {
-          this.chequeados.push([item.position, item.nombre, item.valor, item.referencia])
+          this.chequeados.push([item.position, item.nombre, item.valor, item.referencia,item.header])
+          let index = this.chequeados.findIndex((el: any) => el[0] == item.position)
+          //significa que chequeo algun valor de perfil lipidico
+          if ([115,116,117,118,119,120].includes(item.position) && !this.chequeados.map((c:any)=>c[0]).includes(114.9)){
+            const {position,nombre,valor,referencia,header} = this.perfilLipido[0]
+            this.chequeados.splice(index - 1 ,0,[position, nombre, valor, referencia,header])
+          }
         }
       }
     } else {
@@ -1425,6 +1442,13 @@ drawTable(doc:any,arreglo:any){
         if (repetido) {
           let index = this.chequeados.findIndex((el: any) => el[0] == item.position)
           this.chequeados.splice(index, 1)
+
+          //Para borrar el titulo de perfil lipido
+          let existe = [115,116,117,118,119,120].some(elemento => this.chequeados.map((c:any)=>c[0]).includes(elemento));
+          if ( [115,116,117,118,119,120].includes(item.position) && !existe){
+            let index2 = this.chequeados.findIndex((el: any) => el[0] == 114.9)
+            this.chequeados.splice(index2,1)
+          }
         }
       }
     }
